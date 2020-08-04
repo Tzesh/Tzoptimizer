@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 323</value>
+    <value>137, 310</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 28</value>
@@ -141,22 +141,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>22</value>
   </data>
   <data name="FullScreenOptimizations.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="FullScreenOptimizations.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 114</value>
+    <value>12, 114</value>
   </data>
   <data name="FullScreenOptimizations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 17</value>
+    <value>182, 17</value>
   </data>
   <data name="FullScreenOptimizations.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="FullScreenOptimizations.Text" xml:space="preserve">
-    <value>Disable FullScreenOptimizations</value>
+    <value>Disable Full Screen Optimizations</value>
   </data>
   <data name="&gt;&gt;FullScreenOptimizations.Name" xml:space="preserve">
     <value>FullScreenOptimizations</value>
@@ -168,34 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FullScreenOptimizations.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 33</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Tzoptimizer is an application which does basic registry editing stuff for you.</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>21</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -225,49 +198,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 46</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>291, 13</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>You can just select which registry edit has to be done or not.</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>20</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 341</value>
+    <value>378, 339</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 13</value>
+    <value>30, 15</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>v0.78 Beta</value>
+    <value>v1.0</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -279,76 +225,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 72</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 13</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>github.com/Tzesh/Tzoptimizer</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>133, 59</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 13</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Stay tuned for upcoming updates.</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>19</value>
   </data>
   <data name="NetworkThrottlingIndex.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="NetworkThrottlingIndex.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 137</value>
+    <value>12, 137</value>
   </data>
   <data name="NetworkThrottlingIndex.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 17</value>
+    <value>185, 17</value>
   </data>
   <data name="NetworkThrottlingIndex.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="NetworkThrottlingIndex.Text" xml:space="preserve">
-    <value>Minimize NetworkThrottlingIndex</value>
+    <value>Minimize Network Throttling Index</value>
   </data>
   <data name="&gt;&gt;NetworkThrottlingIndex.Name" xml:space="preserve">
     <value>NetworkThrottlingIndex</value>
@@ -360,22 +252,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NetworkThrottlingIndex.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>18</value>
   </data>
   <data name="SystemResponsiveness.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="SystemResponsiveness.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 161</value>
+    <value>12, 160</value>
   </data>
   <data name="SystemResponsiveness.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 17</value>
+    <value>197, 17</value>
   </data>
   <data name="SystemResponsiveness.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="SystemResponsiveness.Text" xml:space="preserve">
-    <value>Set SystemResponsiveness to Zero</value>
+    <value>Set System Responsiveness to Zero</value>
   </data>
   <data name="&gt;&gt;SystemResponsiveness.Name" xml:space="preserve">
     <value>SystemResponsiveness</value>
@@ -387,13 +279,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SystemResponsiveness.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>17</value>
   </data>
   <data name="HighPriority.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="HighPriority.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 185</value>
+    <value>12, 183</value>
   </data>
   <data name="HighPriority.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 17</value>
@@ -414,13 +306,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;HighPriority.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>16</value>
   </data>
   <data name="Cortana.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Cortana.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 209</value>
+    <value>12, 206</value>
   </data>
   <data name="Cortana.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 17</value>
@@ -441,13 +333,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Cortana.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>15</value>
   </data>
   <data name="StartupDelay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="StartupDelay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 233</value>
+    <value>12, 229</value>
   </data>
   <data name="StartupDelay.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 17</value>
@@ -468,33 +360,388 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StartupDelay.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>14</value>
   </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+  <data name="DisableBing.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 85</value>
+  <data name="DisableBing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 206</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 13</value>
+  <data name="DisableBing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 17</value>
   </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="DisableBing.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Windoptimizer optimizes only Windows 10.</value>
+  <data name="DisableBing.Text" xml:space="preserve">
+    <value>Disable Bing On Startup Menu</value>
   </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
+  <data name="&gt;&gt;DisableBing.Name" xml:space="preserve">
+    <value>DisableBing</value>
   </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;DisableBing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;DisableBing.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;DisableBing.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="ADS.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ADS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 183</value>
+  </data>
+  <data name="ADS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 17</value>
+  </data>
+  <data name="ADS.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="ADS.Text" xml:space="preserve">
+    <value>Disable Advertisements</value>
+  </data>
+  <data name="&gt;&gt;ADS.Name" xml:space="preserve">
+    <value>ADS</value>
+  </data>
+  <data name="&gt;&gt;ADS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ADS.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ADS.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="SSD.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SSD.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SSD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 229</value>
+  </data>
+  <data name="SSD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 17</value>
+  </data>
+  <data name="SSD.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="SSD.Text" xml:space="preserve">
+    <value>Disable Prefetch and Superfetch</value>
+  </data>
+  <data name="&gt;&gt;SSD.Name" xml:space="preserve">
+    <value>SSD</value>
+  </data>
+  <data name="&gt;&gt;SSD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SSD.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SSD.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="GameMode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GameMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 114</value>
+  </data>
+  <data name="GameMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 17</value>
+  </data>
+  <data name="GameMode.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="GameMode.Text" xml:space="preserve">
+    <value>Enable Game Mode</value>
+  </data>
+  <data name="&gt;&gt;GameMode.Name" xml:space="preserve">
+    <value>GameMode</value>
+  </data>
+  <data name="&gt;&gt;GameMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GameMode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GameMode.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="GameDVR.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GameDVR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GameDVR.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 137</value>
+  </data>
+  <data name="GameDVR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 17</value>
+  </data>
+  <data name="GameDVR.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="GameDVR.Text" xml:space="preserve">
+    <value>Disable GameDVR</value>
+  </data>
+  <data name="&gt;&gt;GameDVR.Name" xml:space="preserve">
+    <value>GameDVR</value>
+  </data>
+  <data name="&gt;&gt;GameDVR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GameDVR.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GameDVR.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="Enhancepointerprecision.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Enhancepointerprecision.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 160</value>
+  </data>
+  <data name="Enhancepointerprecision.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 17</value>
+  </data>
+  <data name="Enhancepointerprecision.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="Enhancepointerprecision.Text" xml:space="preserve">
+    <value>Disable Enhance Pointer Precision</value>
+  </data>
+  <data name="&gt;&gt;Enhancepointerprecision.Name" xml:space="preserve">
+    <value>Enhancepointerprecision</value>
+  </data>
+  <data name="&gt;&gt;Enhancepointerprecision.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Enhancepointerprecision.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Enhancepointerprecision.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 344</value>
+  </data>
+  <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 10</value>
+  </data>
+  <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Name" xml:space="preserve">
+    <value>progressBar1</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 294</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Progress:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Information.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Information.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Information.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 294</value>
+  </data>
+  <data name="Information.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 13</value>
+  </data>
+  <data name="Information.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="Information.Text" xml:space="preserve">
+    <value>Select processes that you want to do                               </value>
+  </data>
+  <data name="&gt;&gt;Information.Name" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="&gt;&gt;Information.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Information.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Information.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SelectAll.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SelectAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 253</value>
+  </data>
+  <data name="SelectAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 17</value>
+  </data>
+  <data name="SelectAll.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="SelectAll.Text" xml:space="preserve">
+    <value>Select All / Unselect All</value>
+  </data>
+  <data name="&gt;&gt;SelectAll.Name" xml:space="preserve">
+    <value>SelectAll</value>
+  </data>
+  <data name="&gt;&gt;SelectAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SelectAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SelectAll.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Tzoptimermation.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Tzoptimermation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Tzoptimermation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 37</value>
+  </data>
+  <data name="Tzoptimermation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="Tzoptimermation.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;Tzoptimermation.Name" xml:space="preserve">
+    <value>Tzoptimermation</value>
+  </data>
+  <data name="&gt;&gt;Tzoptimermation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Tzoptimermation.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Tzoptimermation.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 37</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>401, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Tzoptimizer is an application that allows you to do some necessary and performance</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 54</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>increasing regedit settings. Tzoptimizer is only works in W10. It has to be opened as</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 71</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>399, 13</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>run as administrator. Tune up for upcoming updates: github.com/Tzesh/Tzoptimizer</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -502,6 +749,9 @@
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
+  </data>
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>414, 363</value>

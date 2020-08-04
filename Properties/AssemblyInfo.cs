@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Windows Optimizer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Tzoptimizer")]
+[assembly: AssemblyDescription("Just an application that allows you to do some necessary and performance increasing regedit settings at once")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Windows Optimizer")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Tzeshization")]
+[assembly: AssemblyProduct("Tzoptimizer")]
+[assembly: AssemblyCopyright("Copyright ©  2020 All Rights Reserved")]
+[assembly: AssemblyTrademark("github.com/Tzesh/Tzoptimizer")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

@@ -1,0 +1,13 @@
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csprojAssemblyReference.cache
+D:\Projeler\Windows Optimizer\obj\Debug\Windows_Optimizer.Form1.resources
+D:\Projeler\Windows Optimizer\obj\Debug\Windows_Optimizer.Form1.en.resources
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csproj.GenerateResource.cache
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csproj.CoreCompileInputs.cache
+D:\Projeler\Windows Optimizer\bin\Debug\Tzoptimizer.exe.config
+D:\Projeler\Windows Optimizer\bin\Debug\Tzoptimizer.exe
+D:\Projeler\Windows Optimizer\bin\Debug\Tzoptimizer.pdb
+D:\Projeler\Windows Optimizer\bin\Debug\en\Tzoptimizer.resources.dll
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.Properties.Resources.resources
+D:\Projeler\Windows Optimizer\obj\Debug\en\Tzoptimizer.resources.dll
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.exe
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.pdb
