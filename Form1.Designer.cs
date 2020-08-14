@@ -41,7 +41,7 @@
             this.DisableBing = new System.Windows.Forms.CheckBox();
             this.ADS = new System.Windows.Forms.CheckBox();
             this.SSD = new System.Windows.Forms.CheckBox();
-            this.GameMode = new System.Windows.Forms.CheckBox();
+            this.HWAcc = new System.Windows.Forms.CheckBox();
             this.GameDVR = new System.Windows.Forms.CheckBox();
             this.Enhancepointerprecision = new System.Windows.Forms.CheckBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -52,6 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -126,11 +127,11 @@
             this.SSD.Name = "SSD";
             this.SSD.UseVisualStyleBackColor = true;
             // 
-            // GameMode
+            // HWAcc
             // 
-            resources.ApplyResources(this.GameMode, "GameMode");
-            this.GameMode.Name = "GameMode";
-            this.GameMode.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.HWAcc, "HWAcc");
+            this.HWAcc.Name = "HWAcc";
+            this.HWAcc.UseVisualStyleBackColor = true;
             // 
             // GameDVR
             // 
@@ -186,10 +187,16 @@
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -200,7 +207,7 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.Enhancepointerprecision);
             this.Controls.Add(this.GameDVR);
-            this.Controls.Add(this.GameMode);
+            this.Controls.Add(this.HWAcc);
             this.Controls.Add(this.SSD);
             this.Controls.Add(this.ADS);
             this.Controls.Add(this.DisableBing);
@@ -236,7 +243,7 @@
         private System.Windows.Forms.CheckBox DisableBing;
         private System.Windows.Forms.CheckBox ADS;
         private System.Windows.Forms.CheckBox SSD;
-        private System.Windows.Forms.CheckBox GameMode;
+        private System.Windows.Forms.CheckBox HWAcc;
         private System.Windows.Forms.CheckBox GameDVR;
         private System.Windows.Forms.CheckBox Enhancepointerprecision;
         private System.Windows.Forms.ProgressBar progressBar1;
@@ -247,6 +254,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 

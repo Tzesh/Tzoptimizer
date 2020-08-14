@@ -85,10 +85,10 @@ namespace Windows_Optimizer
                 Process.Add("Prefetch and Superfetch has been optimized for SSD.");
             }
 
-            if (GameMode.CheckState == CheckState.Checked)
+            if (HWAcc.CheckState == CheckState.Checked)
             {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
-                Process.Add("Game Mode has been enabled it works properly after 2004.");
+                RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers"), "HwSchMode", 2);
+                Process.Add("Enabled Hardware Accelerated GPU Scheduling.");
             }
 
             if (GameDVR.CheckState == CheckState.Checked)
@@ -96,6 +96,8 @@ namespace Windows_Optimizer
                 RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
                 RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
                 Process.Add("GameDVR, AppCapture and HistoricalCapture has been disabled.");
+                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
+                Process.Add("Game Mode has been enabled it works properly after 2004.");
             }
 
             if (Enhancepointerprecision.CheckState == CheckState.Checked)
@@ -118,13 +120,12 @@ namespace Windows_Optimizer
                 foreach (var Temp in Process)
                 {
                     Information.Text = (string)Temp;
-                    System.Threading.Thread.Sleep(250);
                     progressBar1.Value = progress;
                 }
 
                 progressBar1.Value = 100;
 
-                if (MessageBox.Show("Selected processes have been done. Do you want to exit?", "Tzoptimizer",
+                if (MessageBox.Show("Selected processes have been done. You may need to restart your computer to apply all the changes. Do you want to exit?", "Tzoptimizer",
                     MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Application.Exit();
@@ -158,7 +159,7 @@ namespace Windows_Optimizer
                 DisableBing.CheckState = CheckState.Checked;
                 ADS.CheckState = CheckState.Checked;
                 SSD.CheckState = CheckState.Checked;
-                GameMode.CheckState = CheckState.Checked;
+                HWAcc.CheckState = CheckState.Checked;
                 GameDVR.CheckState = CheckState.Checked;
                 Enhancepointerprecision.CheckState = CheckState.Checked;
             }
@@ -173,7 +174,7 @@ namespace Windows_Optimizer
                 DisableBing.CheckState = CheckState.Unchecked;
                 ADS.CheckState = CheckState.Unchecked;
                 SSD.CheckState = CheckState.Unchecked;
-                GameMode.CheckState = CheckState.Unchecked;
+                HWAcc.CheckState = CheckState.Unchecked;
                 GameDVR.CheckState = CheckState.Unchecked;
                 Enhancepointerprecision.CheckState = CheckState.Unchecked;
             }

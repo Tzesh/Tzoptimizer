@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tzoptimizer", "Tzoptimizer.csproj", "{EDC67633-21C7-4C2B-A66A-84EB88177A1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDC67633-21C7-4C2B-A66A-84EB88177A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC67633-21C7-4C2B-A66A-84EB88177A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC67633-21C7-4C2B-A66A-84EB88177A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC67633-21C7-4C2B-A66A-84EB88177A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10456712-7081-4EEC-9C06-A7A7A16A836C}
+	EndGlobalSection
+EndGlobal
