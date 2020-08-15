@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,96 +19,87 @@ namespace Windows_Optimizer
         public Form1()
         {
             InitializeComponent();
+            info.ReadOnly = true;
+            Information.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ArrayList Process = new ArrayList();
-
-            if (FullScreenOptimizations.CheckState == CheckState.Checked) {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"System\GameConfigStore"), "GameDVR_FSEBehavior", 2);
-                Process.Add("FullScreenOptimizations has been disabled globally.");
-            }
-
-            if (NetworkThrottlingIndex.CheckState == CheckState.Checked)
+            for (int i = 0; i < ProcessesBox.Items.Count; i++)
             {
-                RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "NetworkThrottlingIndex", 4294967295);
-                Process.Add("NetworkThrottlingIndex has been minimized.");
+                if (ProcessesBox.GetItemChecked(i) == true) {
+                switch (i)
+                {
+                    case 0:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"System\GameConfigStore"), "GameDVR_FSEBehavior", 2);
+                        Process.Add("FullScreenOptimizations has been disabled globally.");
+                        break;
+                    case 1:
+                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "NetworkThrottlingIndex", 4294967295);
+                        RegistryManager.DisableNablesAlgorithm(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces"));
+                        Process.Add("Disabled Nagle's Algorithm and Network Throttling Index.");
+                        break;
+                    case 2:
+                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "SystemResponsiveness", 0);
+                        Process.Add("SystemResponsiveness has been set to 0.");
+                        break;
+                    case 3:
+                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "GPU Priority", 8);
+                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "Priority", 6);
+                        Process.Add("Games' priority has been changed to higher-priority.");
+                        break;
+                    case 4:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search"), "AllowCortana", 0);
+                        Process.Add("Cortana has been disabled.");
+                        break;
+                    case 5:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize"), "StartupDelayInMSec", 0);
+                        Process.Add("StartupDelay has been removed.");
+                        break;
+                    case 6:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers"), "HwSchMode", 2);
+                        Process.Add("Enabled Hardware Accelerated GPU Scheduling.");
+                        break;
+                    case 7:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
+                        Process.Add("GameDVR, AppCapture and HistoricalCapture has been disabled.");
+                        break;
+                    case 8:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
+                        Process.Add("Game Mode has been enabled it works properly after 2004.");
+                        break;
+                    case 9:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseSpeed", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold1", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold2", 0);
+                        Process.Add("Enchanced Pointer Precision has been disabled.");
+                        break;
+                    case 10:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SilentInstalledAppsEnabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SystemPaneSuggestionsEnabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SoftLandingEnabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenEnabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenOverlayEnabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SubscribedContent-310093Enabled", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "ShowSyncProviderNotifications", 0);
+                        Process.Add("All the advertisements has been removed.");
+                        break;
+                    case 11:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer"), "DisableSearchBoxSuggestions", 1);
+                        Process.Add("Bing has been removed from Startup Menu.");
+                        break;
+                    case 12:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnableSuperfetch", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnablePrefetcher", 0);
+                        Process.Add("Prefetch and Superfetch has been optimized for SSD.");
+                        break;
+                     default:
+                        break;
+                }
+                }
             }
-
-            if (SystemResponsiveness.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "SystemResponsiveness", 0);
-                Process.Add("SystemResponsiveness has been set to 0.");
-            }
-
-            if (HighPriority.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "GPU Priority", 8);
-                RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "Priority", 6);
-                Process.Add("Games' priority has been changed to higher-priority.");
-            }
-
-            if (Cortana.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search"), "AllowCortana", 0);
-                Process.Add("Cortana has been disabled.");
-            }
-
-            if (StartupDelay.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize"), "StartupDelayInMSec", 0);
-                Process.Add("StartupDelay has been removed.");
-            }
-
-            if (DisableBing.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer"), "DisableSearchBoxSuggestions", 1);
-                Process.Add("Bing has been removed from Startup Menu.");
-            }
-
-            if (ADS.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SilentInstalledAppsEnabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SystemPaneSuggestionsEnabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SoftLandingEnabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenEnabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenOverlayEnabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SubscribedContent-310093Enabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "ShowSyncProviderNotifications", 0);
-                Process.Add("All the advertisements has been removed.");
-            }
-
-            if (SSD.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnableSuperfetch", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnablePrefetcher", 0);
-                Process.Add("Prefetch and Superfetch has been optimized for SSD.");
-            }
-
-            if (HWAcc.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers"), "HwSchMode", 2);
-                Process.Add("Enabled Hardware Accelerated GPU Scheduling.");
-            }
-
-            if (GameDVR.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
-                Process.Add("GameDVR, AppCapture and HistoricalCapture has been disabled.");
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
-                Process.Add("Game Mode has been enabled it works properly after 2004.");
-            }
-
-            if (Enhancepointerprecision.CheckState == CheckState.Checked)
-            {
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseSpeed", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold1", 0);
-                RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold2", 0);
-                Process.Add("Enchance Pointer Precision has been disabled.");
-            }
-
             if (Process.Count == 0)
             {
                 MessageBox.Show("Please select the processes that you want to do.", "Tzoptimizer", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,9 +109,10 @@ namespace Windows_Optimizer
             {
                 int progress = 100 / Process.Count;
                 progressBar1.Maximum = 100;
+                Information.Clear();
                 foreach (var Temp in Process)
                 {
-                    Information.Text = (string)Temp;
+                    Information.AppendText((string)Temp + "\n");
                     progressBar1.Value = progress;
                 }
 
@@ -148,35 +141,82 @@ namespace Windows_Optimizer
 
         private void SelectAll_CheckedChanged(object sender, EventArgs e)
         {
-            if (SelectAll.CheckState == CheckState.Checked)
+            for (int i = 0; i < ProcessesBox.Items.Count; i++)
             {
-                FullScreenOptimizations.CheckState = CheckState.Checked;
-                NetworkThrottlingIndex.CheckState = CheckState.Checked;
-                SystemResponsiveness.CheckState = CheckState.Checked;
-                HighPriority.CheckState = CheckState.Checked;
-                Cortana.CheckState = CheckState.Checked;
-                StartupDelay.CheckState = CheckState.Checked;
-                DisableBing.CheckState = CheckState.Checked;
-                ADS.CheckState = CheckState.Checked;
-                SSD.CheckState = CheckState.Checked;
-                HWAcc.CheckState = CheckState.Checked;
-                GameDVR.CheckState = CheckState.Checked;
-                Enhancepointerprecision.CheckState = CheckState.Checked;
+                if (SelectAll.Checked == true)
+                {
+                    ProcessesBox.SetItemChecked(i, true);
+                }
+                else
+                {
+                    ProcessesBox.SetItemChecked(i, false);
+                }
             }
-            else
+        }
+
+        private void Recommended_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Recommended.SelectedIndex == 0)
             {
-                FullScreenOptimizations.CheckState = CheckState.Unchecked;
-                NetworkThrottlingIndex.CheckState = CheckState.Unchecked;
-                SystemResponsiveness.CheckState = CheckState.Unchecked;
-                HighPriority.CheckState = CheckState.Unchecked;
-                Cortana.CheckState = CheckState.Unchecked;
-                StartupDelay.CheckState = CheckState.Unchecked;
-                DisableBing.CheckState = CheckState.Unchecked;
-                ADS.CheckState = CheckState.Unchecked;
-                SSD.CheckState = CheckState.Unchecked;
-                HWAcc.CheckState = CheckState.Unchecked;
-                GameDVR.CheckState = CheckState.Unchecked;
-                Enhancepointerprecision.CheckState = CheckState.Unchecked;
+                for (int i = 0; i < ProcessesBox.Items.Count; i++)
+                {
+                        ProcessesBox.SetItemChecked(i, true);
+                }
+                ProcessesBox.SetItemChecked(12, false);
+            }
+            if (Recommended.SelectedIndex == 1) {
+                for (int i = 0; i < ProcessesBox.Items.Count; i++)
+                {
+                        ProcessesBox.SetItemChecked(i, true);
+                }
+            }
+        }
+
+        private void infoBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (infoBox.SelectedIndex)
+            {
+                case 0:
+                    info.Text = "Full Screen Optimizations, is a bunch of optimizations that have been added Windows 10 by Microsoft. But as you can guess, it's not helpful at all just the opposite...";
+                    break;
+                case 1:
+                    info.Text = "Nagle’s Algorithm combines several small packets into a single, larger packet for more efficient transmissions. This is designed to improve throughput efficiency of data transmission. Disabling “nagling” can help reduce latency/ping in some games. Nagle’s algorithm is enabled in Windows by default.\n" +
+                        "Windows implements a network throttling mechanism, the idea behind such throttling is that processing of network packets can be a resource-intensive task. It is beneficial to turn off such throttling for achieving maximum throughput...";
+                    break;
+                case 2:
+                    info.Text = "Multimedia streaming and some games that uses “Multimedia Class Scheduler” service (MMCSS) can only utilize up to 80% of the CPU. The “Multimedia Class Scheduler” service (MMCSS) ensures prioritized access to CPU resources, without denying CPU resources to lower-priority background applications.\n" +
+                        "Update another tweak In Windows 8/8.1, just like with Windows 7, multimedia applications use the 'Multimedia Class Scheduler' service (MMCSS) to ensure priritized access to CPU resources, without denying CPU resources to lower-priority background applications. However, this also reserves 20% of CPU by default for background processes, your multimedia streaming and some games can only utilize up to 80% of the CPU. This setting, in combination with the above 'NetworkThrottlingIndex' can help some games and video streaming. We recommend reducing the reserved CPU for background processes from the default of 20%.";
+                    break;
+                case 3:
+                    info.Text = "You can also change the priority of games to higher.";
+                    break;
+                case 4:
+                    info.Text = "If you are not using Cortana or it's not supported in your country you can just disable it.";
+                    break;
+                case 5:
+                    info.Text = "Windows always delays startup a little bit in order to make sure everything is working all right. Actually, you don't need this delay at all.";
+                    break;
+                case 6:
+                    info.Text = "Recently, in Windows 10 2004, Microsoft added a feature which is called 'Hardware Accelerated GPU Scheduling' and it looks like works very well exclusively in 0.1% and 1% FPS. Basicly, it's increases your minimum-fps value.";
+                    break;
+                case 7:
+                    info.Text = "GameDVR is the most common thing that every first human got trouble with it in Windows 10's early times. If you are using it, just please use Nvidia Geforce Experience or OBS to record your gameplay. It ruins your performance, not worth it.";
+                    break;
+                case 8:
+                    info.Text = "If you are using Windows 10 2004 or higher version, I strongly recommend you to enable Game Mode. Including 2004 looks like Microsoft finally managed to increase our game performance by game mode.";
+                    break;
+                case 9:
+                    info.Text = "Unless you are using and too old and not working well mouse you should disable Enchanced Pointer Precision. Just give a shot. It will totally worth it.";
+                    break;
+                case 10:
+                    info.Text = "Windows 10 comes with lots of advertisements. This basic option just deletes all the advertisements at once. Strongly recommended.";
+                    break;
+                case 11:
+                    info.Text = "Did you notice something boring while you are just looking for a file on your computer in search box? Yes, Bing Search! Who needs Bing even for searching in internet while Google exists?";
+                    break;
+                case 12:
+                    info.Text = "Every time you run an application in your PC, a Prefetch file that contains information about the files loaded by the application is created by the Windows operating system. The information in the Prefetch file is used for optimizing the loading time of the application the next time that you run it. SuperFetch attempts to predict which applications you will launch next and preloads all of the necessary data into memory. Its prediction algorithm is superior and can predict which next 3 applications you will launch by what time in a day. In short, SuperFetch and Prefetch are Windows Storage Management technologies that provide fast access to data on traditional hard drives.On Solid State Drives, they result in unnecessary write operations.";
+                    break;
             }
         }
     }

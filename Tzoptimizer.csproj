@@ -51,7 +51,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Tzesh Amblem - Icon - White.ico</ApplicationIcon>
+    <ApplicationIcon>black.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -107,6 +107,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\black.png" />
+    <Content Include="black.ico" />
     <Content Include="Tzesh Amblem - Icon - White.ico" />
   </ItemGroup>
   <ItemGroup>
