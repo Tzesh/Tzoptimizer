@@ -310,6 +310,18 @@ namespace Windows_Optimizer
                 }
                 i++;
             }
+
+            if (drives[0].Equals("SSD"))
+            {
+                ProgressInfo.AppendText("\nLooks like your system is based on a SSD. We strongly recommend you to use recommended settings for SSD based systems.");
+                ProgressInfo.AppendText("\nRecommended settings for SSD based systems selected.");
+                Recommended.SelectedIndex = 1;
+            } else
+            {
+                ProgressInfo.AppendText("\nLooks like your system is based on non-SSD. We strongly recommend you to use recommended settings for non-SSD based systems.");
+                ProgressInfo.AppendText("\nRecommended settings for non-SSD based systems selected.");
+                Recommended.SelectedIndex = 0;
+            }
           }
 
         }

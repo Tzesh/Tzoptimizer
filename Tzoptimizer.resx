@@ -119,10 +119,10 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>809, 308</value>
+    <value>791, 308</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 28</value>
+    <value>180, 28</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
@@ -156,7 +156,7 @@
     <value>5</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>v1.3</value>
+    <value>v1.4</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -171,10 +171,10 @@
     <value>16</value>
   </data>
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>809, 292</value>
+    <value>791, 292</value>
   </data>
   <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 10</value>
+    <value>180, 10</value>
   </data>
   <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -370,7 +370,7 @@
     <value>For non-SSD Systems</value>
   </data>
   <data name="Recommended.Items1" xml:space="preserve">
-    <value>For SSD-Based Systems</value>
+    <value>For SSD Based Systems</value>
   </data>
   <data name="Recommended.Location" type="System.Drawing.Point, System.Drawing">
     <value>791, 265</value>
