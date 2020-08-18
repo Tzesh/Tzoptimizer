@@ -138,6 +138,7 @@
             // 
             // infoBox
             // 
+            resources.ApplyResources(this.infoBox, "infoBox");
             this.infoBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.infoBox.FormattingEnabled = true;
             this.infoBox.Items.AddRange(new object[] {
@@ -161,7 +162,6 @@
             resources.GetString("infoBox.Items17"),
             resources.GetString("infoBox.Items18"),
             resources.GetString("infoBox.Items19")});
-            resources.ApplyResources(this.infoBox, "infoBox");
             this.infoBox.Name = "infoBox";
             this.infoBox.SelectedIndexChanged += new System.EventHandler(this.infoBox_SelectedIndexChanged);
             // 
