@@ -84,7 +84,7 @@ namespace Tzoptimizer
                     processInformation.Text = "You can see every hidden file and every single file extension if you want to.";
                     break;
                 case 4:
-                    processInformation.Text = "If you want to see hidden files and all file extensions you should do this process.";
+                    processInformation.Text = "You can set explorer to open to my computer.";
                     break;
                 case 5:
                     processInformation.Text = "Sometimes P2P Delivery Optimization process may be really unnecessary and resource-leaking problem. You can just disable it.";
