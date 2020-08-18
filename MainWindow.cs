@@ -122,9 +122,9 @@ namespace Windows_Optimizer
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control"), "WaitToKillServiceTimeout", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseHoverTime", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "MenuShowDelay", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "ActiveWndTrackTimeout", 10);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "ActiveWndTrackTimeout", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "AutoEndTasks", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "HungAppTimeout", 2000);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "HungAppTimeout", 20000);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "MenuShowDelay", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "WaitToKillAppTimeout", 30000);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "LowLevelHooksTimeout", 20000);
