@@ -70,6 +70,7 @@
             "Disable Driver Updates",
             "Disable Windows Defender",
             "Show Hidden Files And File Extensions",
+            "Set Explorer Open To My Computer",
             "Disable P2P Update Delivery Optimization",
             "Allow Windows Updates For Other Products"});
             this.processSelect.Location = new System.Drawing.Point(299, 64);
