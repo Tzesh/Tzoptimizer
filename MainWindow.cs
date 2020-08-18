@@ -138,6 +138,11 @@ namespace Windows_Optimizer
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"), "VerboseStatus", 1);
                         Process.Add("Verbose Service has been enabled.");
                         break;
+                        case 19:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "GlobalUserDisabled", 1);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "Migrated", 4);
+                        Process.Add("Background applications of Windows 10 have been disabled.");
+                        break;
                         default:
                         break;
                 }
@@ -149,21 +154,38 @@ namespace Windows_Optimizer
                     switch (temp)
                     {
                         case 0:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"), "AUOptions", 2);
-                            Process.Add("Optional Settings : Windows Update has been disabled.");
-                            break;
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"), "AUOptions", 2);
+                        Process.Add("Optional Processes : Windows Update has been disabled.");
+                        break;
                         case 1:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"), "ExcludeWUDriversInQualityUpdate", 1);
-                            Process.Add("Optional Settings : Driver Updates have been disabled.");
-                            break;
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"), "ExcludeWUDriversInQualityUpdate", 1);
+                        Process.Add("Optional Processes : Driver Updates have been disabled.");
+                        break;
                         case 2:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender"), "DisableAntiSpyware", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableBehaviorMonitoring", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableOnAccessProtection", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableScanOnRealtimeEnable", 1);
-                            Process.Add("Optional Settings : Windows Defender has been disabled.");
-                            break;
-                        default:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender"), "DisableAntiSpyware", 1);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableBehaviorMonitoring", 1);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableOnAccessProtection", 1);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableScanOnRealtimeEnable", 1);
+                        Process.Add("Optional Processes : Windows Defender has been disabled.");
+                        break;
+                        case 3:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "HideFileExt", 0);
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Hidden", 1);
+                        Process.Add("Optional Processes : Hidden files and file extensions are gonna be visible from this moment.");
+                        break;
+                        case 4:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "LaunchTo", 1);
+                        Process.Add("Optional Processes : Explorer will open to my computer.");
+                        break;
+                        case 5:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config"), "DODownloadMode", 0);
+                        Process.Add("Optional Processes : Delivery Optimization (P2P Update) has been disabled.");
+                        break;
+                        case 6:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d"), "RegisteredWithAU", 1);
+                        Process.Add("Optional Processes : Other products will be updated by Windows Update.");
+                        break;
+                    default:
                         break;
                     }
                     }
@@ -301,6 +323,9 @@ namespace Windows_Optimizer
                     break;
                 case 18:
                     ProcessInfo.Text = "Verbose Service is a service that allows you to see what's going on with your computer's services and what's wrong with them at startup and shutdown screen. I recommend you to use it.";
+                    break;
+                case 19:
+                    ProcessInfo.Text = "Windows recently gave access to applications which are from windows store to run at background. You can just simply disable it as well. I recommend you to do that process.";
                     break;
             }
         }

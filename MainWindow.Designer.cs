@@ -113,7 +113,8 @@
             resources.GetString("ProcessesBox.Items15"),
             resources.GetString("ProcessesBox.Items16"),
             resources.GetString("ProcessesBox.Items17"),
-            resources.GetString("ProcessesBox.Items18")});
+            resources.GetString("ProcessesBox.Items18"),
+            resources.GetString("ProcessesBox.Items19")});
             resources.ApplyResources(this.ProcessesBox, "ProcessesBox");
             this.ProcessesBox.Name = "ProcessesBox";
             // 
@@ -158,7 +159,8 @@
             resources.GetString("infoBox.Items15"),
             resources.GetString("infoBox.Items16"),
             resources.GetString("infoBox.Items17"),
-            resources.GetString("infoBox.Items18")});
+            resources.GetString("infoBox.Items18"),
+            resources.GetString("infoBox.Items19")});
             resources.ApplyResources(this.infoBox, "infoBox");
             this.infoBox.Name = "infoBox";
             this.infoBox.SelectedIndexChanged += new System.EventHandler(this.infoBox_SelectedIndexChanged);

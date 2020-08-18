@@ -50,7 +50,11 @@
             this.OptionalProcesses.Items.AddRange(new object[] {
             "Disable Windows Update",
             "Disable Driver Updates",
-            "Disable Windows Defender"});
+            "Disable Windows Defender",
+            "Show Hidden Files And File Extensions",
+            "Set Explorer Open To My Computer",
+            "Disable P2P Update Delivery Optimization",
+            "Allow Windows Updates For Other Products"});
             this.OptionalProcesses.Location = new System.Drawing.Point(13, 65);
             this.OptionalProcesses.Name = "OptionalProcesses";
             this.OptionalProcesses.Size = new System.Drawing.Size(280, 289);
@@ -64,7 +68,10 @@
             this.processSelect.Items.AddRange(new object[] {
             "Disable Windows Update",
             "Disable Driver Updates",
-            "Disable Windows Defender"});
+            "Disable Windows Defender",
+            "Show Hidden Files And File Extensions",
+            "Disable P2P Update Delivery Optimization",
+            "Allow Windows Updates For Other Products"});
             this.processSelect.Location = new System.Drawing.Point(299, 64);
             this.processSelect.Name = "processSelect";
             this.processSelect.Size = new System.Drawing.Size(272, 21);
@@ -102,8 +109,8 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.CheckedListBox OptionalProcesses;
         private System.Windows.Forms.ComboBox processSelect;
         private System.Windows.Forms.RichTextBox processInformation;
+        private System.Windows.Forms.CheckedListBox OptionalProcesses;
     }
 }

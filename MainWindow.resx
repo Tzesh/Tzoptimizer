@@ -157,13 +157,13 @@
     <value>935, 433</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 15</value>
+    <value>39, 15</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>v1.5</value>
+    <value>v1.5.2</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -378,6 +378,9 @@
   <data name="ProcessesBox.Items18" xml:space="preserve">
     <value>Enable Verbose Service</value>
   </data>
+  <data name="ProcessesBox.Items19" xml:space="preserve">
+    <value>Turn Off Windows Background Apps</value>
+  </data>
   <data name="ProcessesBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>435, 60</value>
   </data>
@@ -515,6 +518,9 @@
   </data>
   <data name="infoBox.Items18" xml:space="preserve">
     <value>Enable Verbose Service</value>
+  </data>
+  <data name="infoBox.Items19" xml:space="preserve">
+    <value>Turn Off Windows Background Apps</value>
   </data>
   <data name="infoBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 267</value>
