@@ -1,6 +1,4 @@
 D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csprojAssemblyReference.cache
-D:\Projeler\Windows Optimizer\obj\Debug\Windows_Optimizer.Form1.resources
-D:\Projeler\Windows Optimizer\obj\Debug\Windows_Optimizer.Form1.en.resources
 D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csproj.GenerateResource.cache
 D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csproj.CoreCompileInputs.cache
 D:\Projeler\Windows Optimizer\bin\Debug\Tzoptimizer.exe.config
@@ -11,3 +9,184 @@ D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.Properties.Resources.resourc
 D:\Projeler\Windows Optimizer\obj\Debug\en\Tzoptimizer.resources.dll
 D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.exe
 D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.pdb
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.TeamFoundation.Common.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.VisualStudio.Services.Common.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.VisualStudio.Services.WebApi.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Newtonsoft.Json.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Net.Http.Formatting.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.TeamFoundation.Common.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.VisualStudio.Services.Common.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.VisualStudio.Services.WebApi.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Newtonsoft.Json.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+D:\Projeler\Windows Optimizer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Net.Http.Formatting.xml
+D:\Projeler\Windows Optimizer\bin\Debug\cs\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\de\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\es\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\fr\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\it\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ja\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ko\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\pl\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\pt-BR\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ru\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\tr\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\zh-Hans\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\zh-Hant\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\cs\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\de\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\es\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\fr\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\it\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ja\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ko\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\pl\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\pt-BR\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ru\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\tr\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\zh-Hans\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\cs\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\de\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\es\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\fr\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\it\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ja\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ko\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\pl\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\pt-BR\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\ru\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\tr\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\zh-Hans\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.csproj.CopyComplete
+D:\Projeler\Windows Optimizer\bin\Debug\Lambda2Js.Signed.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Raven.Client.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Sparrow.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Buffers.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Memory.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Numerics.Vectors.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Security.Cryptography.Cng.dll
+D:\Projeler\Windows Optimizer\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Projeler\Windows Optimizer\bin\Debug\Lambda2Js.Signed.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Raven.Client.xml
+D:\Projeler\Windows Optimizer\bin\Debug\Sparrow.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Buffers.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Memory.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Numerics.Vectors.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Security.Cryptography.Cng.xml
+D:\Projeler\Windows Optimizer\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Projeler\Windows Optimizer\obj\Debug\Tzoptimizer.Optional.resources
+D:\Projeler\Windows Optimizer\obj\Debug\Windows_Optimizer.MainWindow.resources
+D:\Projeler\Windows Optimizer\obj\Debug\Windows_Optimizer.MainWindow.en.resources
+D:\Projeler\Tzoptimizer\bin\Debug\Tzoptimizer.exe.config
+D:\Projeler\Tzoptimizer\bin\Debug\Tzoptimizer.exe
+D:\Projeler\Tzoptimizer\bin\Debug\Tzoptimizer.pdb
+D:\Projeler\Tzoptimizer\bin\Debug\en\Tzoptimizer.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Lambda2Js.Signed.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.TeamFoundation.Common.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.VisualStudio.Services.Common.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.VisualStudio.Services.WebApi.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Newtonsoft.Json.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Raven.Client.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Sparrow.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Buffers.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Memory.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Net.Http.Formatting.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Numerics.Vectors.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Security.Cryptography.Cng.dll
+D:\Projeler\Tzoptimizer\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Projeler\Tzoptimizer\bin\Debug\Lambda2Js.Signed.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.TeamFoundation.Common.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.VisualStudio.Services.Common.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Microsoft.VisualStudio.Services.WebApi.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Newtonsoft.Json.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Raven.Client.xml
+D:\Projeler\Tzoptimizer\bin\Debug\Sparrow.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Buffers.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+D:\Projeler\Tzoptimizer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Memory.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Net.Http.Formatting.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Numerics.Vectors.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Security.Cryptography.Cng.xml
+D:\Projeler\Tzoptimizer\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Projeler\Tzoptimizer\bin\Debug\cs\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\de\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\es\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\fr\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\it\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ja\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ko\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\pl\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\pt-BR\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ru\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\tr\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\zh-Hans\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\zh-Hant\Microsoft.TeamFoundation.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\cs\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\de\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\es\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\fr\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\it\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ja\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ko\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\pl\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\pt-BR\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ru\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\tr\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\zh-Hans\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services.Common.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\cs\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\de\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\es\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\fr\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\it\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ja\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ko\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\pl\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\pt-BR\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\ru\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\tr\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\zh-Hans\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services.WebApi.resources.dll
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.csprojAssemblyReference.cache
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.Optional.resources
+D:\Projeler\Tzoptimizer\obj\Debug\Windows_Optimizer.MainWindow.resources
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.Properties.Resources.resources
+D:\Projeler\Tzoptimizer\obj\Debug\Windows_Optimizer.MainWindow.en.resources
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.csproj.GenerateResource.cache
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.csproj.CoreCompileInputs.cache
+D:\Projeler\Tzoptimizer\obj\Debug\en\Tzoptimizer.resources.dll
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.csproj.CopyComplete
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.exe
+D:\Projeler\Tzoptimizer\obj\Debug\Tzoptimizer.pdb

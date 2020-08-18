@@ -132,20 +132,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tzoptimizer.cs">
+    <Compile Include="Optional.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tzoptimizer.Designer.cs">
-      <DependentUpon>Tzoptimizer.cs</DependentUpon>
+    <Compile Include="Optional.Designer.cs">
+      <DependentUpon>Optional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistryManager.cs" />
-    <EmbeddedResource Include="Tzoptimizer.en.resx">
-      <DependentUpon>Tzoptimizer.cs</DependentUpon>
+    <EmbeddedResource Include="Optional.resx">
+      <DependentUpon>Optional.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tzoptimizer.resx">
-      <DependentUpon>Tzoptimizer.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.en.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,7 +184,6 @@
   <ItemGroup>
     <None Include="Resources\black.png" />
     <Content Include="black.ico" />
-    <Content Include="Tzesh Amblem - Icon - White.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -18,7 +18,7 @@ namespace Windows_Optimizer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tzoptimizer());
+            Application.Run(new MainWindow());
         }
     }
 }
