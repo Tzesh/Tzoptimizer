@@ -116,18 +116,7 @@ namespace Windows_Optimizer
                         Process.Add("Office Telemetry (Data Collection For Office) has been disabled.");
                         break;
                         case 15:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "DesktopLivePreviewHoverTime", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\ControlSet002\Control"), "WaitToKillServiceTimeout", 20000);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\ControlSet001\Control"), "WaitToKillServiceTimeout", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control"), "WaitToKillServiceTimeout", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseHoverTime", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "MenuShowDelay", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "ActiveWndTrackTimeout", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "AutoEndTasks", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "HungAppTimeout", 20000);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "MenuShowDelay", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "WaitToKillAppTimeout", 30000);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Desktop"), "LowLevelHooksTimeout", 20000);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Start_ShowRun", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoLowDiskSpaceChecks", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "LinkResolveIgnoreLinkInfo", 1);
@@ -302,13 +291,7 @@ namespace Windows_Optimizer
                     ProcessInfo.Text = "Microsoft Office is obviously collecting your data, and that happening even if you are not using Office at all. And of course this is just a resource leak. You can prevent this by disabling Office Telemetry also known as Data Collection For Office.";
                     break;
                 case 15:
-                    ProcessInfo.Text = "It's possible to speed up your computer just by lowering some timeouts such as 'MouseHoverTime' and 'MenuShowDelay' and so on. There's a bunch of settings are changing:" +
-                        "\n- DesktopLivePreviewHoverTime" +
-                        "\n- MouseHoverTime" +
-                        "\n- MenuShowDelay" +
-                        "\n- ActiveWndTrackTimeout" +
-                        "\n- Start_ShowRun" +
-                        "\n- WaitToKillServiceTimeout...";
+                    ProcessInfo.Text = "It's possible to speed up your computer just by lowering some timeouts such as 'MouseHoverTime' and 'MenuShowDelay' and so on...";
                     break;
                 case 16:
                     ProcessInfo.Text = "Tablet mode is for tablet-windows devices not for PC's. I suppose you are not using a windows tablet or do you?";
