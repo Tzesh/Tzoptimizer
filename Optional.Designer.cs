@@ -54,7 +54,8 @@
             "Show Hidden Files And File Extensions",
             "Set Explorer Open To My Computer",
             "Disable P2P Update Delivery Optimization",
-            "Allow Windows Updates For Other Products"});
+            "Allow Windows Updates For Other Products",
+            "Enable Verbose Boot"});
             this.OptionalProcesses.Location = new System.Drawing.Point(13, 65);
             this.OptionalProcesses.Name = "OptionalProcesses";
             this.OptionalProcesses.Size = new System.Drawing.Size(280, 289);
@@ -72,7 +73,8 @@
             "Show Hidden Files And File Extensions",
             "Set Explorer Open To My Computer",
             "Disable P2P Update Delivery Optimization",
-            "Allow Windows Updates For Other Products"});
+            "Allow Windows Updates For Other Products",
+            "Enable Verbose Boot"});
             this.processSelect.Location = new System.Drawing.Point(299, 64);
             this.processSelect.Name = "processSelect";
             this.processSelect.Size = new System.Drawing.Size(272, 21);

@@ -117,53 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>791, 308</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 28</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Optimize</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>935, 433</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 15</value>
+    <value>30, 15</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>v1.5.2</value>
+    <value>v1.6</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -175,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="progressBar1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -199,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -229,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="SelectAll.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -259,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SelectAll.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="Tzoptimermation.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -286,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Tzoptimermation.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -319,16 +292,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="ProcessesBox.Items" xml:space="preserve">
-    <value>Disable Full Screen Optimizations</value>
+    <value>Disable Full Screen Optimizations System-Widely</value>
   </data>
   <data name="ProcessesBox.Items1" xml:space="preserve">
     <value>Minimize Network Throttling Index and Disable Nable's Algorithm</value>
   </data>
   <data name="ProcessesBox.Items2" xml:space="preserve">
-    <value>Set System Responsiveness to Zero</value>
+    <value>Increase System Responsiveness</value>
   </data>
   <data name="ProcessesBox.Items3" xml:space="preserve">
     <value>Set Games as High Priority</value>
@@ -367,7 +340,7 @@
     <value>Disable Data Collection For Office</value>
   </data>
   <data name="ProcessesBox.Items15" xml:space="preserve">
-    <value>Speed Up Your Computer By Just Lowering Timeouts</value>
+    <value>Lower Timeouts</value>
   </data>
   <data name="ProcessesBox.Items16" xml:space="preserve">
     <value>Disable Tablet Mode</value>
@@ -376,10 +349,10 @@
     <value>Disable Timeline</value>
   </data>
   <data name="ProcessesBox.Items18" xml:space="preserve">
-    <value>Enable Verbose Service</value>
+    <value>Turn Off Windows Store Background Apps</value>
   </data>
   <data name="ProcessesBox.Items19" xml:space="preserve">
-    <value>Turn Off Windows Background Apps</value>
+    <value>Optimize Memory Usage</value>
   </data>
   <data name="ProcessesBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>435, 60</value>
@@ -403,10 +376,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ProcessesBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="Recommended.Items" xml:space="preserve">
-    <value>For non-SSD Systems</value>
+    <value>For non-SSD Based Systems</value>
   </data>
   <data name="Recommended.Items1" xml:space="preserve">
     <value>For SSD Based Systems</value>
@@ -430,7 +403,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Recommended.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="Recommended_Settings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -460,19 +433,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Recommended_Settings.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="infoBox.AccessibleName" xml:space="preserve">
     <value />
   </data>
   <data name="infoBox.Items" xml:space="preserve">
-    <value>Disable Full Screen Optimizations</value>
+    <value>Disable Full Screen Optimizations System-Widely</value>
   </data>
   <data name="infoBox.Items1" xml:space="preserve">
     <value>Minimize Network Throttling Index and Disable Nable's Algorithm</value>
   </data>
   <data name="infoBox.Items2" xml:space="preserve">
-    <value>Set System Responsiveness to Zero</value>
+    <value>Increase System Responsiveness</value>
   </data>
   <data name="infoBox.Items3" xml:space="preserve">
     <value>Set Games as High Priority</value>
@@ -511,7 +484,7 @@
     <value>Disable Data Collection For Office</value>
   </data>
   <data name="infoBox.Items15" xml:space="preserve">
-    <value>Speed Up Your Computer By Just Lowering Timeouts</value>
+    <value>Lower Timeouts</value>
   </data>
   <data name="infoBox.Items16" xml:space="preserve">
     <value>Disable Tablet Mode</value>
@@ -520,10 +493,10 @@
     <value>Disable Timeline</value>
   </data>
   <data name="infoBox.Items18" xml:space="preserve">
-    <value>Enable Verbose Service</value>
+    <value>Turn Off Windows Store Background Apps</value>
   </data>
   <data name="infoBox.Items19" xml:space="preserve">
-    <value>Turn Off Windows Background Apps</value>
+    <value>Optimize Memory Usage</value>
   </data>
   <data name="infoBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 267</value>
@@ -544,7 +517,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;infoBox.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="ProcessInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 77</value>
@@ -556,7 +529,7 @@
     <value>34</value>
   </data>
   <data name="ProcessInfo.Text" xml:space="preserve">
-    <value>You can also look at why do we have to do every single process by checking which process that you want to look at by just selecting below.</value>
+    <value>Please select the process from below to get information about it.</value>
   </data>
   <data name="&gt;&gt;ProcessInfo.Name" xml:space="preserve">
     <value>ProcessInfo</value>
@@ -568,7 +541,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ProcessInfo.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -598,7 +571,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="ProgressInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 323</value>
@@ -610,7 +583,7 @@
     <value>36</value>
   </data>
   <data name="ProgressInfo.Text" xml:space="preserve">
-    <value>Select processes that you want to do.</value>
+    <value>Waiting for your selections.</value>
   </data>
   <data name="&gt;&gt;ProgressInfo.Name" xml:space="preserve">
     <value>ProgressInfo</value>
@@ -622,7 +595,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ProgressInfo.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="SystemInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>435, 320</value>
@@ -646,7 +619,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SystemInfo.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 14</value>
@@ -658,7 +631,7 @@
     <value>39</value>
   </data>
   <data name="Header.Text" xml:space="preserve">
-    <value> Tzoptimizer is an application that allows you to do some necessary and performance increasing registry editing stuff. Sometimes even for a basic process like disabling advertisements for Windows 10 may require 5-10 registry edit. You can choose whether process that you want to do or not and get information about it.</value>
+    <value> Tzoptimizer is an application that allows you to do some necessary and performance increasing registry editing stuff in one-click. Sometimes even for a basic process like disabling advertisements for Windows 10 may require 5-10 registry edits.</value>
   </data>
   <data name="&gt;&gt;Header.Name" xml:space="preserve">
     <value>Header</value>
@@ -670,7 +643,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="richTextBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>435, 14</value>
@@ -694,7 +667,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;richTextBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="OptionalButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -721,7 +694,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;OptionalButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -748,7 +721,34 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
+  </data>
+  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>791, 308</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 28</value>
+  </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Optimize</value>
+  </data>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
+  </data>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

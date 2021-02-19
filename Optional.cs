@@ -92,6 +92,9 @@ namespace Tzoptimizer
                 case 6:
                     processInformation.Text = "You can allow Windows Update to update your other products like Office.";
                     break;
+                case 7:
+                    processInformation.Text = "If you are experiencing some boot issues you can always enable Verbose Boot to figure out what is wrong.";
+                    break;
             }
         }
 

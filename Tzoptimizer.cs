@@ -35,7 +35,7 @@ namespace Windows_Optimizer
                 {
                     case 0:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"System\GameConfigStore"), "GameDVR_FSEBehavior", 2);
-                        Process.Add("FullScreenOptimizations has been disabled globally.");
+                        Process.Add("Full Screen Optimizations have been disabled system wide.");
                         break;
                     case 1:
                         RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "NetworkThrottlingIndex", 4294967295);
@@ -66,7 +66,7 @@ namespace Windows_Optimizer
                     case 7:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
-                        Process.Add("GameDVR, AppCapture and HistoricalCapture has been disabled.");
+                        Process.Add("GameDVR, AppCapture and HistoricalCapture have been disabled.");
                         break;
                     case 8:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
@@ -86,7 +86,7 @@ namespace Windows_Optimizer
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenOverlayEnabled", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SubscribedContent-310093Enabled", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "ShowSyncProviderNotifications", 0);
-                        Process.Add("All the advertisements has been removed.");
+                        Process.Add("All the advertisements have been removed.");
                         break;
                     case 11:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer"), "DisableSearchBoxSuggestions", 1);
@@ -95,7 +95,7 @@ namespace Windows_Optimizer
                     case 12:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnableSuperfetch", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnablePrefetcher", 0);
-                        Process.Add("Prefetch and Superfetch has been optimized for SSD.");
+                        Process.Add("Prefetch and Superfetch have been optimized for SSD.");
                         break;
                      default:
                         break;

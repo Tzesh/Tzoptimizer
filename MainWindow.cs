@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Management;
-using Microsoft.TeamFoundation.Common;
 using System.IO;
 using Tzoptimizer;
 
@@ -25,6 +15,7 @@ namespace Windows_Optimizer
         {
             InitializeComponent();
             gatherSystemInfo();
+            information();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,163 +23,184 @@ namespace Windows_Optimizer
             ArrayList Process = new ArrayList();
             for (int i = 0; i < ProcessesBox.Items.Count; i++)
             {
-                if (ProcessesBox.GetItemChecked(i) == true) {
-                switch (i)
+                if (ProcessesBox.GetItemChecked(i) == true)
                 {
-                    case 0:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"System\GameConfigStore"), "GameDVR_FSEBehavior", 2);
-                        Process.Add("FullScreenOptimizations has been disabled globally.");
-                        break;
-                    case 1:
-                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "NetworkThrottlingIndex", 4294967295);
-                        RegistryManager.DisableNablesAlgorithm(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces"));
-                        Process.Add("Disabled Nagle's Algorithm and Network Throttling Index.");
-                        break;
-                    case 2:
-                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "SystemResponsiveness", 0);
-                        Process.Add("SystemResponsiveness has been set to 0.");
-                        break;
-                    case 3:
-                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "GPU Priority", 8);
-                        RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "Priority", 6);
-                        Process.Add("Games' priority has been changed to higher-priority.");
-                        break;
-                    case 4:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search"), "AllowCortana", 0);
-                        Process.Add("Cortana has been disabled.");
-                        break;
-                    case 5:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize"), "StartupDelayInMSec", 0);
-                        Process.Add("StartupDelay has been removed.");
-                        break;
-                    case 6:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers"), "HwSchMode", 2);
-                        Process.Add("Enabled Hardware Accelerated GPU Scheduling.");
-                        break;
-                    case 7:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
-                        Process.Add("GameDVR, AppCapture and HistoricalCapture has been disabled.");
-                        break;
-                    case 8:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
-                        Process.Add("Game Mode has been enabled it works properly after 2004.");
-                        break;
-                    case 9:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseSpeed", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold1", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold2", 0);
-                        Process.Add("Enchanced Pointer Precision has been disabled.");
-                        break;
-                    case 10:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SilentInstalledAppsEnabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SystemPaneSuggestionsEnabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SoftLandingEnabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenEnabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenOverlayEnabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SubscribedContent-310093Enabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "ShowSyncProviderNotifications", 0);
-                        Process.Add("All the advertisements has been removed.");
-                        break;
-                    case 11:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer"), "DisableSearchBoxSuggestions", 1);
-                        Process.Add("Bing has been removed from Startup Menu.");
-                        break;
-                    case 12:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnableSuperfetch", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnablePrefetcher", 0);
-                        Process.Add("Prefetch and Superfetch has been optimized for SSD.");
-                        break;
+                    switch (i)
+                    {
+                        case 0:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"System\GameConfigStore"), "GameDVR_FSEBehavior", 2);
+                            Process.Add("Full Screen Optimizations have been disabled globally.");
+                            break;
+                        case 1:
+                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "NetworkThrottlingIndex", 4294967295);
+                            RegistryManager.DisableNablesAlgorithm(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces"));
+                            Process.Add("Nagle's Algorithm has been disabled and Network Throttling Index has been minimized.");
+                            break;
+                        case 2:
+                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "SystemResponsiveness", 0);
+                            Process.Add("System Responsiveness has been optimized.");
+                            break;
+                        case 3:
+                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "GPU Priority", 8);
+                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "Priority", 6);
+                            Process.Add("Games' priority has been changed to higher-priority.");
+                            break;
+                        case 4:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search"), "AllowCortana", 0);
+                            Process.Add("Cortana has been disabled.");
+                            break;
+                        case 5:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize"), "StartupDelayInMSec", 0);
+                            Process.Add("Startup Delay has been removed.");
+                            break;
+                        case 6:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers"), "HwSchMode", 2);
+                            Process.Add("Enabled Hardware Accelerated GPU Scheduling.");
+                            break;
+                        case 7:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
+                            Process.Add("GameDVR, AppCapture and HistoricalCapture have been disabled.");
+                            break;
+                        case 8:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
+                            Process.Add("Game Mode has been enabled it works properly after 2004.");
+                            break;
+                        case 9:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseSpeed", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold1", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold2", 0);
+                            Process.Add("Enchanced Pointer Precision has been disabled.");
+                            break;
+                        case 10:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SilentInstalledAppsEnabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SystemPaneSuggestionsEnabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SoftLandingEnabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenEnabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenOverlayEnabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SubscribedContent-310093Enabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "ShowSyncProviderNotifications", 0);
+                            Process.Add("All the advertisements have been removed.");
+                            break;
+                        case 11:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer"), "DisableSearchBoxSuggestions", 1);
+                            Process.Add("Bing has been removed from Startup Menu.");
+                            break;
+                        case 12:
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnableSuperfetch", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnablePrefetcher", 0);
+                            Process.Add("Prefetch and Superfetch have been disabled for more optimized SSD.");
+                            break;
                         case 13:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys"), "Flags", 58);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys"), "Flags", 506);
-                        Process.Add("Toggle Keys and Sticky Keys have been disabled.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys"), "Flags", 58);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys"), "Flags", 506);
+                            Process.Add("Toggle Keys and Sticky Keys have been disabled.");
+                            break;
                         case 14:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common"), "sendcustomerdata", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common\Feedback"), "enabled", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common\Feedback"), "includescreenshot", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\Common\ClientTelemetry"), "DisableTelemetry", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\Common"), "qmenable", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\Common"), "updatereliabilitydata", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\OSM"), "Enablelogging", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\OSM"), "EnableUpload", 0);
-                        Process.Add("Office Telemetry (Data Collection For Office) has been disabled.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common"), "sendcustomerdata", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common\Feedback"), "enabled", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common\Feedback"), "includescreenshot", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\Common\ClientTelemetry"), "DisableTelemetry", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\Common"), "qmenable", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\Common"), "updatereliabilitydata", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\OSM"), "Enablelogging", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\OSM"), "EnableUpload", 0);
+                            Process.Add("Office Telemetry (Data Collection For Office) has been disabled.");
+                            break;
                         case 15:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseHoverTime", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Start_ShowRun", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoLowDiskSpaceChecks", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "LinkResolveIgnoreLinkInfo", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoResolveSearch", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoResolveTrack", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoInternetOpenWith", 1);
-                        Process.Add("Timeouts have been decreased as much as it could be.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseHoverTime", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Start_ShowRun", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoLowDiskSpaceChecks", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "LinkResolveIgnoreLinkInfo", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoResolveSearch", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoResolveTrack", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoInternetOpenWith", 1);
+                            Process.Add("Timeouts have been decreased as much as it could be.");
+                            break;
                         case 16:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\ImmersiveShell"), "SignInMode", 2);
-                        Process.Add("Tablet Mode has been disabled.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\ImmersiveShell"), "SignInMode", 2);
+                            Process.Add("Tablet Mode has been disabled.");
+                            break;
                         case 17:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"), "PublishUserActivities", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"), "EnableActivityFeed", 0);
-                        Process.Add("Timeline has been disabled.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"), "PublishUserActivities", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"), "EnableActivityFeed", 0);
+                            Process.Add("Timeline has been disabled.");
+                            break;
                         case 18:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"), "VerboseStatus", 1);
-                        Process.Add("Verbose Service has been enabled.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "GlobalUserDisabled", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "Migrated", 4);
+                            Process.Add("Background applications of Windows 10 have been disabled.");
+                            break;
                         case 19:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "GlobalUserDisabled", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "Migrated", 4);
-                        Process.Add("Background applications of Windows 10 have been disabled.");
-                        break;
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "ClearPageFileAtShutdown", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "FeatureSettings", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "FeatureSettingsOverrideMask", 3);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "FeatureSettingsOverride", 3);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "LargeSystemCache", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "NonPagedPoolQuota", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "NonPagedPoolSize", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SessionViewSize", 192);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SystemPages", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SecondLevelDataCache", 3072);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SessionPoolSize", 192);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "DisablePagingExecutive", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PagedPoolSize", 192);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PagedPoolQuota", 0);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PhysicalAddressExtension", 1);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "IoPageLockLimit", 100000);
+                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PoolUsageMaximum", 60);
+                            Process.Add("Memory usage has been optimized.");
+                            break;
                         default:
-                        break;
-                }
+                            break;
+                    }
                 }
             }
 
-            foreach (int temp in optionalProcesses) 
+            foreach (int temp in optionalProcesses)
             {
-                    switch (temp)
-                    {
-                        case 0:
+                switch (temp)
+                {
+                    case 0:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"), "AUOptions", 2);
-                        Process.Add("Optional Processes : Windows Update has been disabled.");
+                        Process.Add("Optional Processes: Windows Update has been disabled.");
                         break;
-                        case 1:
+                    case 1:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"), "ExcludeWUDriversInQualityUpdate", 1);
-                        Process.Add("Optional Processes : Driver Updates have been disabled.");
+                        Process.Add("Optional Processes: Driver Updates have been disabled.");
                         break;
-                        case 2:
+                    case 2:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender"), "DisableAntiSpyware", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableBehaviorMonitoring", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableOnAccessProtection", 1);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableScanOnRealtimeEnable", 1);
-                        Process.Add("Optional Processes : Windows Defender has been disabled.");
+                        Process.Add("Optional Processes: Windows Defender has been disabled.");
                         break;
-                        case 3:
+                    case 3:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "HideFileExt", 0);
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Hidden", 1);
-                        Process.Add("Optional Processes : Hidden files and file extensions are gonna be visible from this moment.");
+                        Process.Add("Optional Processes: Hidden files and file extensions are gonna be visible from this moment.");
                         break;
-                        case 4:
+                    case 4:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "LaunchTo", 1);
-                        Process.Add("Optional Processes : Explorer will open to my computer.");
+                        Process.Add("Optional Processes: Explorer will open to my computer.");
                         break;
-                        case 5:
+                    case 5:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config"), "DODownloadMode", 0);
-                        Process.Add("Optional Processes : Delivery Optimization (P2P Update) has been disabled.");
+                        Process.Add("Optional Processes: Delivery Optimization (P2P Update) has been disabled.");
                         break;
-                        case 6:
+                    case 6:
                         RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d"), "RegisteredWithAU", 1);
-                        Process.Add("Optional Processes : Other products will be updated by Windows Update.");
+                        Process.Add("Optional Processes: Other products will be updated by Windows Update.");
+                        break;
+                    case 7:
+                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"), "VerboseStatus", 1);
+                        Process.Add("Optional Processes: Verbose Boot has been enabled.");
                         break;
                     default:
                         break;
-                    }
-                    }
+                }
+            }
             if (Process.Count == 0 && optionalProcesses.Count == 0)
             {
                 MessageBox.Show("Please select the processes that you want to do.", "Tzoptimizer", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -249,14 +261,15 @@ namespace Windows_Optimizer
             {
                 for (int i = 0; i < ProcessesBox.Items.Count; i++)
                 {
-                        ProcessesBox.SetItemChecked(i, true);
+                    ProcessesBox.SetItemChecked(i, true);
                 }
                 ProcessesBox.SetItemChecked(12, false);
             }
-            if (Recommended.SelectedIndex == 1) {
+            if (Recommended.SelectedIndex == 1)
+            {
                 for (int i = 0; i < ProcessesBox.Items.Count; i++)
                 {
-                        ProcessesBox.SetItemChecked(i, true);
+                    ProcessesBox.SetItemChecked(i, true);
                 }
             }
         }
@@ -266,7 +279,7 @@ namespace Windows_Optimizer
             switch (infoBox.SelectedIndex)
             {
                 case 0:
-                    ProcessInfo.Text = "Full Screen Optimizations, is a bunch of optimizations that have been added Windows 10 by Microsoft. But as you can guess, it's not helpful at all just the opposite...";
+                    ProcessInfo.Text = "Full Screen Optimizations, are a bunch of optimizations that have been added Windows 10 by Microsoft. But as you can guess, they are not helpful at all just the opposite...";
                     break;
                 case 1:
                     ProcessInfo.Text = "Nagle’s Algorithm combines several small packets into a single, larger packet for more efficient transmissions. This is designed to improve throughput efficiency of data transmission. Disabling “nagling” can help reduce latency/ping in some games. Nagle’s algorithm is enabled in Windows by default.\n" +
@@ -307,7 +320,7 @@ namespace Windows_Optimizer
                     ProcessInfo.Text = "Every time you run an application in your PC, a Prefetch file that contains information about the files loaded by the application is created by the Windows operating system. The information in the Prefetch file is used for optimizing the loading time of the application the next time that you run it. SuperFetch attempts to predict which applications you will launch next and preloads all of the necessary data into memory. Its prediction algorithm is superior and can predict which next 3 applications you will launch by what time in a day. In short, SuperFetch and Prefetch are Windows Storage Management technologies that provide fast access to data on traditional hard drives.On Solid State Drives, they result in unnecessary write operations.";
                     break;
                 case 13:
-                    ProcessInfo.Text = "Sticky Keys is a feature in Windows that allows modifier keys like Ctrl and Shift to remain active even after when you're not pressing them. This can help users with physical impairments, who have trouble pressing two keys at a time (like using Shift to make uppercase letters).\nToggle Keys is an accessibility feature designed for users with vision impairments or cognitive disabilities. When Toggle Keys are on, the computer provides sound cues when the locking keys Caps Lock, Num Lock, or Scroll Lock are pressed. A high pitched tone sounds when these keys are switched on and a low pitched tone sounds when they are turned off.\nIf you don't need to use, I strongly recommend you to turn that all off.";
+                    ProcessInfo.Text = "Sticky Keys are a feature in Windows that allows modifier keys like Ctrl and Shift to remain active even after when you're not pressing them. This can help users with physical impairments, who have trouble pressing two keys at a time (like using Shift to make uppercase letters).\nToggle Keys is an accessibility feature designed for users with vision impairments or cognitive disabilities. When Toggle Keys are on, the computer provides sound cues when the locking keys Caps Lock, Num Lock, or Scroll Lock are pressed. A high pitched tone sounds when these keys are switched on and a low pitched tone sounds when they are turned off.\nIf you don't need to use, I strongly recommend you to turn that all off.";
                     break;
                 case 14:
                     ProcessInfo.Text = "Microsoft Office is obviously collecting your data, and that happening even if you are not using Office at all. And of course this is just a resource leak. You can prevent this by disabling Office Telemetry also known as Data Collection For Office.";
@@ -322,10 +335,10 @@ namespace Windows_Optimizer
                     ProcessInfo.Text = "Timeline is a completely trash for me, it's unextremely unnecessary and not useful at all. It's just a waste of resource. Just disable it.";
                     break;
                 case 18:
-                    ProcessInfo.Text = "Verbose Service is a service that allows you to see what's going on with your computer's services and what's wrong with them at startup and shutdown screen. I recommend you to use it.";
+                    ProcessInfo.Text = "Windows recently gave access to applications which are from windows store to run at background. You can just simply disable it as well. I recommend you to do that process.";
                     break;
                 case 19:
-                    ProcessInfo.Text = "Windows recently gave access to applications which are from windows store to run at background. You can just simply disable it as well. I recommend you to do that process.";
+                    ProcessInfo.Text = "There are really useful configurations exist for utilize memory usage such as clear pagefiles at shutdown and so on...";
                     break;
             }
         }
@@ -424,13 +437,20 @@ namespace Windows_Optimizer
                 ProgressInfo.AppendText("\nLooks like your system is based on a SSD. We strongly recommend you to use recommended settings for SSD based systems.");
                 ProgressInfo.AppendText("\nRecommended settings for SSD based systems selected.");
                 Recommended.SelectedIndex = 1;
-            } else
+            }
+            else
             {
                 ProgressInfo.AppendText("\nLooks like your system is based on non-SSD. We strongly recommend you to use recommended settings for non-SSD based systems.");
                 ProgressInfo.AppendText("\nRecommended settings for non-SSD based systems selected.");
                 Recommended.SelectedIndex = 0;
             }
-          }
+        }
+
+        private void information()
+        {
+            MessageBox.Show("You can always look source code of Tzoptimizer, but don't you forget, all the operations you done in here is at your own risk. If you want to open Tzoptimizer's github page just click on it's logo located in right-bottom.", "Use at your own risk",
+            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
 
         private void OptionalButton_Click(object sender, EventArgs e)
         {
@@ -449,6 +469,11 @@ namespace Windows_Optimizer
             Form optionalForm = new Optional(this, optionalProcesses);
             optionalForm.Owner = this;
             optionalForm.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Tzesh/Tzoptimizer");
         }
     }
 }
