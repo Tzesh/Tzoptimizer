@@ -1,4 +1,4 @@
-﻿namespace Windows_Optimizer
+﻿namespace Tzoptimizer
 {
     partial class MainWindow
     {
@@ -29,60 +29,58 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.label4 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SelectAll = new System.Windows.Forms.CheckBox();
+            this.VersionLabel = new System.Windows.Forms.Label();
+            this.ProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ProgressLabel = new System.Windows.Forms.Label();
+            this.SelectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.Tzoptimermation = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.GithubLabel = new System.Windows.Forms.Label();
             this.ProcessesBox = new System.Windows.Forms.CheckedListBox();
             this.Recommended = new System.Windows.Forms.ComboBox();
-            this.Recommended_Settings = new System.Windows.Forms.Label();
-            this.infoBox = new System.Windows.Forms.ComboBox();
-            this.ProcessInfo = new System.Windows.Forms.RichTextBox();
+            this.RecommendedSettingsLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ProgressInfo = new System.Windows.Forms.RichTextBox();
             this.SystemInfo = new System.Windows.Forms.RichTextBox();
-            this.Header = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.OptionalButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Logo = new System.Windows.Forms.PictureBox();
+            this.OptimizeButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SystemInfoLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
-            // label4
+            // VersionLabel
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.VersionLabel, "VersionLabel");
+            this.VersionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.VersionLabel.Name = "VersionLabel";
             // 
-            // progressBar1
+            // ProgressBar
             // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
+            resources.ApplyResources(this.ProgressBar, "ProgressBar");
+            this.ProgressBar.Name = "ProgressBar";
             // 
-            // label1
+            // ProgressLabel
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.ProgressLabel, "ProgressLabel");
+            this.ProgressLabel.Name = "ProgressLabel";
             // 
-            // SelectAll
+            // SelectAllCheckBox
             // 
-            resources.ApplyResources(this.SelectAll, "SelectAll");
-            this.SelectAll.Name = "SelectAll";
-            this.SelectAll.UseVisualStyleBackColor = true;
-            this.SelectAll.CheckedChanged += new System.EventHandler(this.SelectAll_CheckedChanged);
+            resources.ApplyResources(this.SelectAllCheckBox, "SelectAllCheckBox");
+            this.SelectAllCheckBox.Name = "SelectAllCheckBox";
+            this.SelectAllCheckBox.UseVisualStyleBackColor = true;
+            this.SelectAllCheckBox.CheckedChanged += new System.EventHandler(this.SelectAll_CheckedChanged);
             // 
             // Tzoptimermation
             // 
             resources.ApplyResources(this.Tzoptimermation, "Tzoptimermation");
             this.Tzoptimermation.Name = "Tzoptimermation";
             // 
-            // label7
+            // GithubLabel
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.GithubLabel, "GithubLabel");
+            this.GithubLabel.Name = "GithubLabel";
             // 
             // ProcessesBox
             // 
@@ -124,46 +122,10 @@
             this.Recommended.Name = "Recommended";
             this.Recommended.SelectedIndexChanged += new System.EventHandler(this.Recommended_SelectedIndexChanged);
             // 
-            // Recommended_Settings
+            // RecommendedSettingsLabel
             // 
-            resources.ApplyResources(this.Recommended_Settings, "Recommended_Settings");
-            this.Recommended_Settings.Name = "Recommended_Settings";
-            // 
-            // infoBox
-            // 
-            resources.ApplyResources(this.infoBox, "infoBox");
-            this.infoBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.infoBox.FormattingEnabled = true;
-            this.infoBox.Items.AddRange(new object[] {
-            resources.GetString("infoBox.Items"),
-            resources.GetString("infoBox.Items1"),
-            resources.GetString("infoBox.Items2"),
-            resources.GetString("infoBox.Items3"),
-            resources.GetString("infoBox.Items4"),
-            resources.GetString("infoBox.Items5"),
-            resources.GetString("infoBox.Items6"),
-            resources.GetString("infoBox.Items7"),
-            resources.GetString("infoBox.Items8"),
-            resources.GetString("infoBox.Items9"),
-            resources.GetString("infoBox.Items10"),
-            resources.GetString("infoBox.Items11"),
-            resources.GetString("infoBox.Items12"),
-            resources.GetString("infoBox.Items13"),
-            resources.GetString("infoBox.Items14"),
-            resources.GetString("infoBox.Items15"),
-            resources.GetString("infoBox.Items16"),
-            resources.GetString("infoBox.Items17"),
-            resources.GetString("infoBox.Items18"),
-            resources.GetString("infoBox.Items19")});
-            this.infoBox.Name = "infoBox";
-            this.infoBox.SelectedIndexChanged += new System.EventHandler(this.infoBox_SelectedIndexChanged);
-            // 
-            // ProcessInfo
-            // 
-            this.ProcessInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.ProcessInfo, "ProcessInfo");
-            this.ProcessInfo.Name = "ProcessInfo";
-            this.ProcessInfo.ReadOnly = true;
+            resources.ApplyResources(this.RecommendedSettingsLabel, "RecommendedSettingsLabel");
+            this.RecommendedSettingsLabel.Name = "RecommendedSettingsLabel";
             // 
             // label9
             // 
@@ -184,20 +146,6 @@
             this.SystemInfo.Name = "SystemInfo";
             this.SystemInfo.ReadOnly = true;
             // 
-            // Header
-            // 
-            this.Header.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.Header, "Header");
-            this.Header.Name = "Header";
-            this.Header.ReadOnly = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.richTextBox1, "richTextBox1");
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            // 
             // OptionalButton
             // 
             resources.ApplyResources(this.OptionalButton, "OptionalButton");
@@ -205,76 +153,82 @@
             this.OptionalButton.UseVisualStyleBackColor = true;
             this.OptionalButton.Click += new System.EventHandler(this.OptionalButton_Click);
             // 
-            // pictureBox1
+            // Logo
             // 
-            this.pictureBox1.Image = global::Tzoptimizer.Properties.Resources.black;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.Logo.Image = global::Tzoptimizer.Properties.Resources.black;
+            resources.ApplyResources(this.Logo, "Logo");
+            this.Logo.Name = "Logo";
+            this.Logo.TabStop = false;
+            this.Logo.Click += new System.EventHandler(this.Logo_Click);
             // 
-            // button2
+            // OptimizeButton
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
+            resources.ApplyResources(this.OptimizeButton, "OptimizeButton");
+            this.OptimizeButton.Name = "OptimizeButton";
+            this.OptimizeButton.UseVisualStyleBackColor = true;
+            this.OptimizeButton.Click += new System.EventHandler(this.OptimizeButton_Click);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // SystemInfoLabel
+            // 
+            resources.ApplyResources(this.SystemInfoLabel, "SystemInfoLabel");
+            this.SystemInfoLabel.Name = "SystemInfoLabel";
             // 
             // MainWindow
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.SystemInfoLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.OptimizeButton);
             this.Controls.Add(this.OptionalButton);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.Header);
             this.Controls.Add(this.SystemInfo);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Logo);
             this.Controls.Add(this.ProgressInfo);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.ProcessInfo);
-            this.Controls.Add(this.infoBox);
-            this.Controls.Add(this.Recommended_Settings);
+            this.Controls.Add(this.RecommendedSettingsLabel);
             this.Controls.Add(this.Recommended);
             this.Controls.Add(this.ProcessesBox);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.GithubLabel);
             this.Controls.Add(this.Tzoptimermation);
-            this.Controls.Add(this.SelectAll);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.SelectAllCheckBox);
+            this.Controls.Add(this.ProgressLabel);
+            this.Controls.Add(this.ProgressBar);
+            this.Controls.Add(this.VersionLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "MainWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_Closing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_Closed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_Closing);
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox SelectAll;
+        private System.Windows.Forms.Label VersionLabel;
+        private System.Windows.Forms.ProgressBar ProgressBar;
+        private System.Windows.Forms.Label ProgressLabel;
+        private System.Windows.Forms.CheckBox SelectAllCheckBox;
         private System.Windows.Forms.Label Tzoptimermation;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label GithubLabel;
         private System.Windows.Forms.CheckedListBox ProcessesBox;
         private System.Windows.Forms.ComboBox Recommended;
-        private System.Windows.Forms.Label Recommended_Settings;
-        private System.Windows.Forms.ComboBox infoBox;
-        private System.Windows.Forms.RichTextBox ProcessInfo;
+        private System.Windows.Forms.Label RecommendedSettingsLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox ProgressInfo;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.RichTextBox SystemInfo;
-        private System.Windows.Forms.RichTextBox Header;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button OptionalButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button OptimizeButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label SystemInfoLabel;
     }
 }
 

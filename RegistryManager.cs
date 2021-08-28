@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Diagnostics;
 using Microsoft.Win32;
 
-namespace Windows_Optimizer
+namespace Tzoptimizer
 {
         public class RegistryManager
         {

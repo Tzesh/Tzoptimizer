@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Tzoptimizer")]
-[assembly: AssemblyDescription("Just an application that allows you to do some necessary and performance increasing regedit settings at once")]
+[assembly: AssemblyDescription("Just an application that allows you to do some necessary and performance increasing settings at once")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tzeshization")]
 [assembly: AssemblyProduct("Tzoptimizer")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.6.0.0")]
-[assembly: AssemblyFileVersion("1.6.0.0")]
+[assembly: AssemblyVersion("1.7.0.0")]
+[assembly: AssemblyFileVersion("1.7.0.0")]

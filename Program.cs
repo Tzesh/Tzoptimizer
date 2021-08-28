@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
 
-namespace Windows_Optimizer
+namespace Tzoptimizer
 {
     static class Program
     {
