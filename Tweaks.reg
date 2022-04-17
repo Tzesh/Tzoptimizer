@@ -60,9 +60,9 @@
 ;:Enhanced pointer precision provides OS-side mouse acceleration but it's not necessary on the other hand not recommended if you have a decent mouse
 ;!optional
 [HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseSpeed"=dword:00000000
-"MouseThreshold1"=dword:00000000
-"MouseThreshold2"=dword:00000000
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
 ;;
 
 ;Disable Toggle Keys
