@@ -4,267 +4,256 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Management;
 using System.IO;
+using System.Net;
+using Tzoptimizer.Utils;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace Tzoptimizer
 {
     public partial class MainWindow : Form
     {
-        ArrayList optionalProcesses = new ArrayList(); // to store and get optional processes
-        
+        List<RegistryClass> Registries = new List<RegistryClass>(); // to store and get tweaks
+        List<RegistryClass> Defaults = new List<RegistryClass>(); // to store and get default values of tweaks
+        bool IsTranslationNeeded = false; // to check whether translation is needed
+
         /// <summary>
-        /// constructor of MainWindow
+        /// Constructor of MainWindow
         /// </summary>
         public MainWindow()
         {
             InitializeComponent(); // UI components
             GatherSystemInformation(); // display system information and recommend settings based on system drive
+            if (AskIfTranslationNeeded()) TranslateTo(); // ask user if translation is needed
+            FillTweaks("https://raw.githubusercontent.com/Tzesh/Tzoptimizer/master/Tweaks.reg"); // to get decent tweaks from github page
+            FillTweaks("https://raw.githubusercontent.com/Tzesh/Tzoptimizer/master/Defaults.reg"); // to get default values of tweaks from github page
             AppearInformation(); // inform user about the program
         }
 
         /// <summary>
-        /// selected processes will be done when optimize button has clicked
+        /// Asking to user if wants to translate the program
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OptimizeButton_Click(object sender, EventArgs e)
+        /// <returns>Boolean value represents whether the user wants to translate language of the program</returns>
+        private bool AskIfTranslationNeeded()
         {
-            ArrayList Process = new ArrayList();
-
-            // Tzoptimizer's processes based on indices so order is important thing in the application
-            for (int i = 0; i < ProcessesBox.Items.Count; i++)
+            // getting the current langauge
+            string language = GetCurrentLanguage();
+            if (language.StartsWith("en-"))
             {
-                if (ProcessesBox.GetItemChecked(i) == true)
+                MessageBox.Show("Translation to another language isn't necessary since OS language is 'English'", "Tzoptimizer - Translation Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            DialogResult result = MessageBox.Show("You are using another language different than English. Do you want to translate Tzoptimizer to that language?", "Tzoptimizer - Translation Service", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result == DialogResult.Yes;
+        }
+
+        /// <summary>
+        /// Gets the language of current culture of windows system
+        /// </summary>
+        /// <returns>String value which represents the culture of the system</returns>
+        private string GetCurrentLanguage()
+        {
+            CultureInfo ci = CultureInfo.CurrentCulture;
+            return ci.Name;
+        }
+
+        /// <summary>
+        /// Translates necessary fields to system language
+        /// </summary>
+        private void TranslateTo()
+        {
+            IsTranslationNeeded = true;
+            this.lbl_HowTo.Text = Translate(lbl_HowTo.Text);
+            this.lbl_Main.Text = Translate(lbl_Main.Text);
+            this.lbl_Reminder.Text = Translate(lbl_Reminder.Text);
+            this.lbl_Reminder1.Text = Translate(lbl_Reminder1.Text);
+            this.lbl_Reminder2.Text = Translate(lbl_Reminder2.Text);
+            this.lbl_Reminder3.Text = Translate(lbl_Reminder3.Text);
+            this.lbl_Reminder4.Text = Translate(lbl_Reminder4.Text);
+            this.lbl_Reminder5.Text = Translate(lbl_Reminder5.Text);
+            this.lbl_RevertHeader.Text = Translate(lbl_RevertHeader.Text);
+            this.lbl_Revert.Text = Translate(lbl_Revert.Text);
+            this.lbl_Progress.Text = Translate(lbl_Progress.Text);
+            this.lbl_System.Text = Translate(lbl_System.Text);
+            this.btn_Optimize.Text = Translate(btn_Optimize.Text);
+            this.btn_Revert.Text = Translate(btn_Revert.Text);
+            this.chk_SelectAll.Text = Translate(chk_SelectAll.Text);
+        }
+
+        /// <summary>
+        /// Translates given string to system language
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="lang"></param>
+        /// <returns></returns>
+        private string Translate(string text)
+        {
+            string lang = GetCurrentLanguage().Split('-')[0];
+            TextInfo cultInfo = new CultureInfo(GetCurrentLanguage(), false).TextInfo;
+            string result = "";
+            string[] sentences = text.Split('.');
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                if (string.IsNullOrEmpty(sentences[i])) continue;
+                result += " " + Translator.TranslateViaGoogle(sentences[i], lang);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Function that gets all the decent tweaks from github page then saves, and displays it in this page
+        /// </summary>
+        public void FillTweaks(string url)
+        {
+            bool isTweaks = url.Contains("Tweaks.reg");
+            WebClient client = new WebClient();
+            Stream stream = client.OpenRead(url);
+            StreamReader reader = new StreamReader(stream);
+            String content = reader.ReadToEnd();
+            String[] lines = content.Split('\n');
+            RegistryClass reg = new RegistryClass();
+            GroupBox gbx_Tweak = new GroupBox();
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string line = lines[i].Replace("\r", "");
+                if (line.StartsWith("//") || line.Length < 1) continue;
+                else if (isTweaks && line.StartsWith(";-"))
                 {
-                    switch (i)
+                    string header = line.Replace(";-", "");
+                    gbx_Tweak = new GroupBox();
+                    gbx_Tweak.Text = IsTranslationNeeded ? Translate(header) : header;
+                    gbx_Tweak.Width = 720;
+                    gbx_Tweak.Height = 56;
+                    flp_Tweaks.Controls.Add(gbx_Tweak);
+                }
+                else if (line.StartsWith(";") && line[1] != ';' && line[1] != ':' && line[1] != '!')
+                {
+                    reg = new RegistryClass();
+                    string title = line.Replace(";", "");
+                    reg.Title = IsTranslationNeeded ? Translate(title) : title;
+                }
+                else if (line.StartsWith(";:"))
+                {
+                    string description = line.Replace(";:", "");
+                    reg.Description = IsTranslationNeeded ? Translate(description) : description;
+                }
+                else if (line.StartsWith(";!"))
+                {
+                    string category = line.Replace(";!", "");
+                    reg.Category = IsTranslationNeeded ? Translate(category) : category;
+                }
+                else if (line.StartsWith("["))
+                {
+                    line = line.Replace("[", "").Replace("]", "");
+                    reg.Root = line.Split('\\')[0];
+                    reg.Path = line.Replace(reg.Root + "\\", "");
+                }
+                else if (line.StartsWith("\""))
+                {
+                    line = line.Replace("\"", "");
+                    string[] keyAndValue = line.Split('=');
+                    reg.KeyValuePairs.Add(keyAndValue[0], keyAndValue[1]);
+                }
+                else if (line.Equals(";;"))
+                {
+                    if (!isTweaks)
                     {
-                        case 0:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"System\GameConfigStore"), "GameDVR_FSEBehavior", 2);
-                            Process.Add("Fullscreen optimizations have been disabled globally.");
-                            break;
-
-                        case 1:
-                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "NetworkThrottlingIndex", 4294967295);
-                            RegistryManager.DisableNablesAlgorithm(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces"));
-                            Process.Add("Nagle's Algorithm has been disabled and Network Throttling Index has been minimized.");
-                            break;
-
-                        case 2:
-                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"), "SystemResponsiveness", 0);
-                            Process.Add("System Responsiveness has been optimized.");
-                            break;
-
-                        case 3:
-                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "GPU Priority", 8);
-                            RegistryManager.SetRegistry(RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"), "Priority", 6);
-                            Process.Add("Games' priority has been changed to higher priority.");
-                            break;
-
-                        case 4:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search"), "AllowCortana", 0);
-                            Process.Add("Cortana has been disabled.");
-                            break;
-
-                        case 5:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize"), "StartupDelayInMSec", 0);
-                            Process.Add("Startup Delay has been removed.");
-                            break;
-
-                        case 6:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers"), "HwSchMode", 2);
-                            Process.Add("Enabled Hardware Accelerated GPU Scheduling.");
-                            break;
-
-                        case 7:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "AppCaptureEnabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR"), "HistoricalCaptureEnabled", 0);
-                            Process.Add("GameDVR, AppCapture and HistoricalCapture have been disabled.");
-                            break;
-
-                        case 8:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\GameBar"), "AllowAutoGameMode", 1);
-                            Process.Add("Game Mode has been enabled it works properly after 2004.");
-                            break;
-
-                        case 9:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseSpeed", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold1", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseThreshold2", 0);
-                            Process.Add("Enchanced Pointer Precision has been disabled.");
-                            break;
-
-                        case 10:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SilentInstalledAppsEnabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SystemPaneSuggestionsEnabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SoftLandingEnabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenEnabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "RotatingLockScreenOverlayEnabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"), "SubscribedContent-310093Enabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "ShowSyncProviderNotifications", 0);
-                            Process.Add("All the advertisements have been removed.");
-                            break;
-
-                        case 11:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer"), "DisableSearchBoxSuggestions", 1);
-                            Process.Add("Bing has been removed from Startup Menu.");
-                            break;
-
-                        case 12:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnableSuperfetch", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters"), "EnablePrefetcher", 0);
-                            Process.Add("Prefetch and Superfetch have been disabled for more optimized SSD.");
-                            break;
-
-                        case 13:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys"), "Flags", 58);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Accessibility\ToggleKeys"), "Flags", 506);
-                            Process.Add("Toggle Keys and Sticky Keys have been disabled.");
-                            break;
-
-                        case 14:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common"), "sendcustomerdata", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common\Feedback"), "enabled", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\16.0\Common\Feedback"), "includescreenshot", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Office\Common\ClientTelemetry"), "DisableTelemetry", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\Common"), "qmenable", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\Common"), "updatereliabilitydata", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\OSM"), "Enablelogging", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Office\16.0\OSM"), "EnableUpload", 0);
-                            Process.Add("Office Telemetry (Data Collection For Office) has been disabled.");
-                            break;
-
-                        case 15:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Control Panel\Mouse"), "MouseHoverTime", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Start_ShowRun", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoLowDiskSpaceChecks", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "LinkResolveIgnoreLinkInfo", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoResolveSearch", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoResolveTrack", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"), "NoInternetOpenWith", 1);
-                            Process.Add("Timeouts have been decreased as much as it could be.");
-                            break;
-
-                        case 16:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\ImmersiveShell"), "SignInMode", 2);
-                            Process.Add("Tablet Mode has been disabled.");
-                            break;
-
-                        case 17:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"), "PublishUserActivities", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\System"), "EnableActivityFeed", 0);
-                            Process.Add("Timeline has been disabled.");
-                            break;
-
-                        case 18:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "GlobalUserDisabled", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications"), "Migrated", 4);
-                            Process.Add("Background applications of Windows 10 have been disabled.");
-                            break;
-
-                        case 19:
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "ClearPageFileAtShutdown", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "FeatureSettings", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "FeatureSettingsOverrideMask", 3);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "FeatureSettingsOverride", 3);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "LargeSystemCache", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "NonPagedPoolQuota", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "NonPagedPoolSize", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SessionViewSize", 192);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SystemPages", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SecondLevelDataCache", 3072);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "SessionPoolSize", 192);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "DisablePagingExecutive", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PagedPoolSize", 192);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PagedPoolQuota", 0);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PhysicalAddressExtension", 1);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "IoPageLockLimit", 100000);
-                            RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"), "PoolUsageMaximum", 60);
-                            Process.Add("Memory usage has been optimized.");
-                            break;
-
-                        default:
-                            break;
+                        Defaults.Add(reg);
+                        continue;
                     }
+                    CheckBox chk_Registry = new CheckBox
+                    {
+                        Tag = Registries.Count,
+                        Text = reg.Title
+                    };
+                    Registries.Add(reg);
+                    ToolTip toolTip = new ToolTip();
+                    toolTip.SetToolTip(chk_Registry, reg.Description);
+                    int margin = gbx_Tweak.Controls.Count + 1;
+                    chk_Registry.Location = new System.Drawing.Point(10, margin * 24);
+                    chk_Registry.Width = 600;
+                    gbx_Tweak.Controls.Add(chk_Registry);
+                    gbx_Tweak.Height += 24;
                 }
-            }
-
-            foreach (int temp in optionalProcesses)
-            {
-                switch (temp)
-                {
-                    case 0:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"), "AUOptions", 2);
-                        Process.Add("Optional Processes: Windows Update has been disabled.");
-                        break;
-
-                    case 1:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"), "ExcludeWUDriversInQualityUpdate", 1);
-                        Process.Add("Optional Processes: Driver Updates have been disabled.");
-                        break;
-
-                    case 2:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender"), "DisableAntiSpyware", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableBehaviorMonitoring", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableOnAccessProtection", 1);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"), "DisableScanOnRealtimeEnable", 1);
-                        Process.Add("Optional Processes: Windows Defender has been disabled.");
-                        break;
-
-                    case 3:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "HideFileExt", 0);
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "Hidden", 1);
-                        Process.Add("Optional Processes: Hidden files and file extensions are gonna be visible from this moment.");
-                        break;
-
-                    case 4:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"), "LaunchTo", 1);
-                        Process.Add("Optional Processes: Explorer will open to my computer.");
-                        break;
-
-                    case 5:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config"), "DODownloadMode", 0);
-                        Process.Add("Optional Processes: Delivery Optimization (P2P Update) has been disabled.");
-                        break;
-
-                    case 6:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services\7971f918-a847-4430-9279-4a52d1efe18d"), "RegisteredWithAU", 1);
-                        Process.Add("Optional Processes: Other products will be updated by Windows Update.");
-                        break;
-
-                    case 7:
-                        RegistryManager.SetRegistry(Microsoft.Win32.Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"), "VerboseStatus", 1);
-                        Process.Add("Optional Processes: Verbose Boot has been enabled.");
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-
-            if (Process.Count == 0 && optionalProcesses.Count == 0)
-            {
-                MessageBox.Show("Please select the processes that you want to do.", "Tzoptimizer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ProgressInfo.Text = "Please select the processes that you want to do.";
-            }
-
-            else
-            {
-                int progress = 100 / Process.Count;
-                ProgressBar.Maximum = 100;
-                ProgressInfo.Clear();
-                foreach (var Temp in Process)
-                {
-                    ProgressInfo.AppendText((string)Temp + "\n");
-                    ProgressBar.Value = progress;
-                }
-                ProgressInfo.AppendText("All selected processes have been applied.");
-                ProgressBar.Value = 100;
-
-                MessageBox.Show("Selected processes have been done. You may need to restart your computer to apply all the changes.", "Tzoptimizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         /// <summary>
-        /// if user wants to close application this method will be invoked
+        /// Selected tweaks will be done when optimize button has clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Optimize_Click(object sender, EventArgs e)
+        {
+            ApplyRegistries(true);
+        }
+        /// <summary>
+        /// Selected tweaks will be reverted to their default values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Revert_Click(object sender, EventArgs e)
+        {
+            ApplyRegistries(false);
+        }
+
+        /// <summary>
+        /// Function that used in both optimize and revert buttons
+        /// </summary>
+        /// <param name="registries"></param>
+        private void ApplyRegistries(bool tweak)
+        {
+            List<int> tweaks = GetTweakIndexes();
+            if (!IsAppropriate(tweaks)) return;
+            foreach (int index in tweaks)
+            {
+                RegistryClass reg = tweak ? Registries[index] : Defaults[index];
+                RegistryManager.ApplyRegistry(reg);
+                string message = tweak ? reg.Title + " tweak has been done." : reg.Title + " tweak has been reverted.";
+                message = IsTranslationNeeded ? Translate(message) : message;
+                rtb_Progress.Text += message + "\n";
+            }
+        }
+
+        /// <summary>
+        /// Check whether given list is appropriate if it's not then return a message
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        private bool IsAppropriate(List<int> list)
+        {
+            if (list.Count == 0)
+            {
+                string message = "Please select at least one tweak to apply.";
+                if (IsTranslationNeeded) message = Translate(message);
+                MessageBox.Show(message, "Tzoptimizer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// All tweaks done accordingt to their indexes this function simply returns selected tweaks and their indexes
+        /// </summary>
+        /// <returns></returns>
+        private List<int> GetTweakIndexes()
+        {
+            List<int> indexes = new List<int>();
+            foreach (GroupBox gbx in flp_Tweaks.Controls)
+            {
+                foreach (CheckBox chk in gbx.Controls)
+                {
+                    if (chk.Checked)
+                    {
+                        indexes.Add((int)chk.Tag);
+                    }
+                }
+            }
+            return indexes;
+        }
+
+        /// <summary>
+        /// If user wants to close application this method will be invoked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -274,83 +263,41 @@ namespace Tzoptimizer
         }
 
         /// <summary>
-        /// if user approves to close the application application will be closed
+        /// If user approves to close the application application will be closed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MainWindow_Closed(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close?", "Tzoptimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            string message = "Are you sure you want to close?";
+            if (IsTranslationNeeded) message = Translate(message);
+            if (MessageBox.Show(message, "Tzoptimizer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
             }
         }
 
         /// <summary>
-        /// functionality of select all tick
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SelectAll_CheckedChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < ProcessesBox.Items.Count; i++)
-            {
-                if (SelectAllCheckBox.Checked == true)
-                {
-                    ProcessesBox.SetItemChecked(i, true);
-                }
-                else
-                {
-                    ProcessesBox.SetItemChecked(i, false);
-                }
-            }
-        }
-
-        /// <summary>
-        /// a function that helps user to set recommended settings
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Recommended_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Recommended.SelectedIndex == 0)
-            {
-                for (int i = 0; i < ProcessesBox.Items.Count; i++)
-                {
-                    ProcessesBox.SetItemChecked(i, true);
-                }
-                ProcessesBox.SetItemChecked(12, false);
-            }
-            if (Recommended.SelectedIndex == 1)
-            {
-                for (int i = 0; i < ProcessesBox.Items.Count; i++)
-                {
-                    ProcessesBox.SetItemChecked(i, true);
-                }
-            }
-        }
-
-        /// <summary>
-        /// function that gets every single system information and displays it
+        /// Function that gets every single system information and displays it
         /// </summary>
         private void GatherSystemInformation()
         {
-            SystemInfo.AppendText("Operating System: ");
-            SystemInfo.AppendText(System.Runtime.InteropServices.RuntimeInformation.OSDescription);
-            SystemInfo.AppendText(Environment.Is64BitOperatingSystem ? " 64-bit" : " 32-bit");
-            SystemInfo.AppendText("\nCPU: ");
+            rtb_System.AppendText("Operating System: ");
+            rtb_System.AppendText(System.Runtime.InteropServices.RuntimeInformation.OSDescription);
+            rtb_System.AppendText(Environment.Is64BitOperatingSystem ? " 64-bit" : " 32-bit");
+            rtb_System.AppendText("\nCPU: ");
             GetComponent("Win32_Processor", "Name");
-            SystemInfo.AppendText("RAM: ");
+            rtb_System.AppendText("RAM: ");
             GetRAM();
-            SystemInfo.AppendText("GPU(s): ");
+            rtb_System.AppendText("GPU(s): ");
             GetComponent("Win32_VideoController", "Name");
-            SystemInfo.AppendText("Disk(s) information: ");
+            rtb_System.AppendText("Disk(s) information: ");
             DiskChecker();
 
         }
 
         /// <summary>
-        /// to get hardware (GPU/CPU) component information
+        /// Get hardware (GPU/CPU) component information
         /// </summary>
         /// <param name="hwclass">hardware class</param>
         /// <param name="syntax">dataset/header/syntax</param>
@@ -359,12 +306,12 @@ namespace Tzoptimizer
             ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM " + hwclass);
             foreach (ManagementObject mj in mos.Get())
             {
-                SystemInfo.AppendText(Convert.ToString(mj[syntax]) + "\n");
+                rtb_System.AppendText(Convert.ToString(mj[syntax]) + "\n");
             }
         }
 
         /// <summary>
-        /// method used for get RAM amount and display it
+        /// Method used for get RAM amount and display it
         /// </summary>
         private void GetRAM()
         {
@@ -372,12 +319,12 @@ namespace Tzoptimizer
             ManagementObjectCollection moc = mc.GetInstances();
             foreach (ManagementObject item in moc)
             {
-                SystemInfo.AppendText(Convert.ToString(Math.Round(Convert.ToDouble(item.Properties["TotalPhysicalMemory"].Value) / (1048576 * 1024), 0)) + " GB\n");
+                rtb_System.AppendText(Convert.ToString(Math.Round(Convert.ToDouble(item.Properties["TotalPhysicalMemory"].Value) / (1048576 * 1024), 0)) + " GB\n");
             }
         }
 
         /// <summary>
-        /// function that used for check disks and their information
+        /// Function that used for check disks and their information
         /// </summary>
         private void DiskChecker()
         {
@@ -419,83 +366,58 @@ namespace Tzoptimizer
             foreach (DriveInfo d in allDrives)
             {
                 int i = 0;
-                SystemInfo.AppendText("\nDrive " + d.Name);
-                SystemInfo.AppendText("\nDrive type: " + d.DriveType + " " + drives[i]);
+                rtb_System.AppendText("\nDrive " + d.Name);
+                rtb_System.AppendText("\nDrive type: " + d.DriveType + " " + drives[i]);
                 if (d.IsReady == true)
                 {
-                    SystemInfo.AppendText("\nVolume label: " + d.VolumeLabel);
-                    SystemInfo.AppendText("\nFile system: " + d.DriveFormat);
-                    SystemInfo.AppendText("\nAvailable space to current user: " + (d.AvailableFreeSpace / (1048576 * 1024), 0) + " GB");
-                    SystemInfo.AppendText("\nTotal available space: " + (d.TotalFreeSpace / (1048576 * 1024), 0) + " GB");
+                    rtb_System.AppendText("\nVolume label: " + d.VolumeLabel);
+                    rtb_System.AppendText("\nFile system: " + d.DriveFormat);
+                    rtb_System.AppendText("\nAvailable space to current user: " + (d.AvailableFreeSpace / (1048576 * 1024), 0) + " GB");
+                    rtb_System.AppendText("\nTotal available space: " + (d.TotalFreeSpace / (1048576 * 1024), 0) + " GB");
 
-                    SystemInfo.AppendText("\nTotal size of drive: " + (d.TotalSize / (1048576 * 1024), 0) + " GB");
+                    rtb_System.AppendText("\nTotal size of drive: " + (d.TotalSize / (1048576 * 1024), 0) + " GB");
                 }
                 i++;
             }
 
-            if (drives[0].Equals("SSD"))
-            {
-                ProgressInfo.AppendText("\nLooks like your system is based on a SSD. We strongly recommend you to use recommended settings for SSD based systems.");
-                ProgressInfo.AppendText("\nRecommended settings for SSD based systems selected.");
-                Recommended.SelectedIndex = 1;
-            }
 
-            else
-            {
-                ProgressInfo.AppendText("\nLooks like your system is based on non-SSD. We strongly recommend you to use recommended settings for non-SSD based systems.");
-                ProgressInfo.AppendText("\nRecommended settings for non-SSD based systems selected.");
-                Recommended.SelectedIndex = 0;
-            }
         }
 
         /// <summary>
-        /// the opening pop-up window message
+        /// The opening pop-up window message
         /// </summary>
         private void AppearInformation()
         {
-            MessageBox.Show("You can always look source code of Tzoptimizer, but don't you forget, all the operations you done in here is at your own risk. If you want to open Tzoptimizer's github page just click on it's logo located in the right-bottom. Use at your own risk", "Tzoptimizer",
+            string message = "You can always look source code of Tzoptimizer, but don't you forget, all the operations you done in here is at your own risk. If you want to open Tzoptimizer's github page just click on it's logo located in the right-bottom. Use at your own risk";
+            if (IsTranslationNeeded) message = Translate(message);
+            MessageBox.Show(message, "Tzoptimizer",
             MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         /// <summary>
-        /// function to open optional window
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OptionalButton_Click(object sender, EventArgs e)
-        {
-            Form optionalForm = new OptionalWindow(this, optionalProcesses);
-            optionalForm.Show();
-            optionalForm.Owner = this;
-        }
-
-        /// <summary>
-        /// a basic function to get optional processes
-        /// </summary>
-        /// <param name="arrayList"></param>
-        public void SetOptional(ArrayList arrayList)
-        {
-            this.optionalProcesses = arrayList;
-        }
-
-        /// <summary>
-        /// function that used for closing optional window
-        /// </summary>
-        public void CloseOptionalWindow()
-        {
-            Form optionalForm = new OptionalWindow(this, optionalProcesses);
-            optionalForm.Owner = this;
-            optionalForm.Close();
-        }
-
-        /// <summary>
-        /// basic easter egg to open github page of the program
+        /// URL link of GitHub repository will be opened when user clicks on the image
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Logo_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Tzesh/Tzoptimizer");
+        }
+
+        /// <summary>
+        /// Basic implementation of select all/unselect all functionality
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectAllCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (GroupBox gbx in flp_Tweaks.Controls)
+            {
+                foreach (CheckBox chk in gbx.Controls)
+                {
+                    chk.Checked = (sender as CheckBox).Checked;
+                }
+            }
         }
     }
 }
