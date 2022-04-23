@@ -1,7 +1,7 @@
 # Tzoptimizer
 We all need some kind of registry edit when we first setup the Windows due to lots of reasons. Maybe we just want to increase gaming performance or disable some unnecessary settings all around Windows but all the reasons we do registry edit has a common purpose "<b>to optimize Windows</b>". And Tzoptimizer not for only doing normal registry edit stuff it's more like a shortcut to all the necessary stuff in literally one click. And it's a really good opportunity to look at new and performance boosting options.
 
-And when our goal is to optimize Windows 10 the best thing to use is Tzoptimizer...
+And when our goal is to optimize Windows 10/11 the best thing to use is Tzoptimizer...
 
 ![Tzoptimizer footage](https://imgur.com/G9k0S4M.png)
 
