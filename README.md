@@ -3,7 +3,7 @@ We all need some kind of registry edit when we first setup the Windows due to lo
 
 And when our goal is to optimize Windows 10/11 the best thing to use is Tzoptimizer...
 
-![Tzoptimizer footage](https://imgur.com/G9k0S4M.png)
+![Tzoptimizer footage](https://imgur.com/4nxLohu.png)
 
 * You can **do all of the boring registry stuff in one click**. And also you can **revert** every single setting to its default value **by one click**.
 * It **dynamically gets tweaks** from this repository which has tweaks up-to date.
