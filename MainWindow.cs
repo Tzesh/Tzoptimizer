@@ -213,6 +213,9 @@ namespace Tzoptimizer
                 message = IsTranslationNeeded ? Translate(message) : message;
                 rtb_Progress.Text += message + "\n";
             }
+            string information = "You have to restart your computer whenever you want to apply all the tweaks.";
+            information = IsTranslationNeeded ? Translate(information) : information;
+            MessageBox.Show(information, "Tzoptimizer - Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -379,8 +382,6 @@ namespace Tzoptimizer
                 }
                 i++;
             }
-
-
         }
 
         /// <summary>
