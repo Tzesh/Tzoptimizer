@@ -130,13 +130,13 @@
     <value>731, 633</value>
   </data>
   <data name="VersionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 15</value>
+    <value>39, 15</value>
   </data>
   <data name="VersionLabel.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="VersionLabel.Text" xml:space="preserve">
-    <value>v2.0</value>
+    <value>v2.0.1</value>
   </data>
   <data name="&gt;&gt;VersionLabel.Name" xml:space="preserve">
     <value>VersionLabel</value>
