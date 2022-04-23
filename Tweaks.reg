@@ -3,7 +3,7 @@
 // If you wonder what's really going on you can inspect source code of the program
 // github.com/Tzesh/Tzoptimizer
 
-;-General Performance & Responsiveness Tweaks
+;-General Tweaks
 
 ;Disable power throttling
 ;:Disables power throttling, hence allows every program to use your hardware more efficiently
