@@ -3,7 +3,7 @@
 // If you wonder what's really going on you can inspect source code of the program
 // github.com/Tzesh/Tzoptimizer
 
-;-General Performance & Responsiveness Tweaks
+;-General Tweaks
 
 ;Disable power throttling
 ;:Disables power throttling, hence allows every program to use your hardware more efficiently
@@ -79,6 +79,35 @@
 "MouseSpeed"="510"
 ;;
 
+;Show hidden files and file extensions
+;:You can see every single file extension and every hidden file
+;!optional
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"="0"
+"Hidden"="1"
+;;
+
+;Disable advertisements all across system
+;:Disables advertisements like suggestions and so on
+;!optional
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"SilentInstalledAppsEnabled"="1"
+"SystemPaneSuggestionsEnabled"="1"
+"SoftLandingEnabled"="1"
+"RotatingLockScreenEnabled"="1"
+"RotatingLockScreenOverlayEnabled"="1"
+"SubscribedContent-338388Enabled"="1"
+"SubscribedContent-338389Enabled"="1"
+"ShowSyncProviderNotifications"="1"
+;;
+
+;Remove Bing from start menu
+;:Removes Bing suggestions on start menu
+;!optional
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"DisableSearchBoxSuggestions"="0"
+;;
+
 ;-Advanced Tweaks
 
 ;Disable sleep
@@ -107,4 +136,11 @@
 ;!advanced
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "MenuShowDelay"="400"
+;;
+
+;Disable Prefetch
+;:Disables Prefetch
+;!advanced
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters]
+"EnablePrefetcher"="3"
 ;;

@@ -79,6 +79,35 @@
 "MouseSpeed"="506"
 ;;
 
+;Show hidden files and file extensions
+;:You can see every single file extension and every hidden file
+;!optional
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"="1"
+"Hidden"="0"
+;;
+
+;Disable advertisements all across system
+;:Disables advertisements like suggestions and so on
+;!optional
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"SilentInstalledAppsEnabled"="0"
+"SystemPaneSuggestionsEnabled"="0"
+"SoftLandingEnabled"="0"
+"RotatingLockScreenEnabled"="0"
+"RotatingLockScreenOverlayEnabled"="0"
+"SubscribedContent-338388Enabled"="0"
+"SubscribedContent-338389Enabled"="0"
+"ShowSyncProviderNotifications"="0"
+;;
+
+;Remove Bing from start menu
+;:Removes Bing suggestions on start menu
+;!optional
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"DisableSearchBoxSuggestions"="1"
+;;
+
 ;-Advanced Tweaks
 
 ;Disable sleep
@@ -107,4 +136,11 @@
 ;!advanced
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "MenuShowDelay"="0"
+;;
+
+;Disable Prefetch
+;:Disables Prefetch
+;!advanced
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters]
+"EnablePrefetcher"="0"
 ;;
