@@ -75,7 +75,7 @@
 ;Disable Sticky Keys
 ;:Popup window of Toggle and sticky keys sometimes drives every one of us crazy, but you can turn them down if you want to
 ;!optional
-[HKEY_CURRENT_USER\Control Panel\Accessibility\StickKeys]
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
 "MouseSpeed"="510"
 ;;
 
