@@ -76,7 +76,7 @@
 ;:Popup window of Toggle and sticky keys sometimes drives every one of us crazy, but you can turn them down if you want to
 ;!optional
 [HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
-"MouseSpeed"="506"
+"Flags"="506"
 ;;
 
 ;Show hidden files and file extensions
